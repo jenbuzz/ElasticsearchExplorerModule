@@ -1,10 +1,19 @@
 {
   "name": "dan-lyn/elasticsearch-explorer-module",
-  "description": "",
-  "keywords": [
-    "zf2",
-    "elasticsearch"
+  "type": "library",
+  "description": "Elasticsearch status and search functionality as a Zend Framework 2 module",
+  "keywords": ["zf2", "elasticsearch"],
+  "homepage": "https://github.com/dan-lyn/ElasticsearchExplorerModule/",
+  "license" : "MIT",
+  "authors" : [
+    {
+      "name": "dan-lyn",
+      "homepage": "https://github.com/dan-lyn/"
+    }
   ],
+  "support": {
+    "issues": "https://github.com/dan-lyn/ElasticsearchExplorerModule/issues"
+  },
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.3.9",
