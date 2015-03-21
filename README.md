@@ -23,3 +23,6 @@ Add the module to your local config/application.config.php:
   'ElasticsearchExplorer'
 ),
 ```
+
+##License
+ElasticsearchExplorerModule is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
