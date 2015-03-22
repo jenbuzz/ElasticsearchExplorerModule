@@ -19,7 +19,7 @@ class ElasticsearchManager
     }
 
     /**
-     * Get the configuration set in elasticsearch.yml as an array.
+     * Get the configuration as an array.
      *
      * @return array arrConfiguration
      */
@@ -28,16 +28,8 @@ class ElasticsearchManager
         $arrDefaultConfiguration = array('hosts' => '');
 
         try {
-            $yamlParser = new Parser();
-
-            $arrConfiguration = $yamlParser->parse(file_get_contents(dirname(__FILE__).'/../Resources/config/elasticsearch.yml'));
-            if (!empty($arrConfiguration)) {
-                if (isset($arrConfiguration['hosts'])) {
-                    $arrConfiguration['hosts'] = array($arrConfiguration['hosts']);
-                }
-
-                return $arrConfiguration;
-            }
+            $arrDefaultConfiguration = array();
+            $arrConfiguration['hosts'] = array('localhost:9200');
 
             return $arrDefaultConfiguration;
         } catch (\Exception $e) {
