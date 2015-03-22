@@ -1,0 +1,24 @@
+.search-row {
+  margin-bottom: 20px;
+}
+.search-row table {
+  width: 100%;
+}
+
+.searchfield {
+  height: 80px;
+}
+
+.top-bar-section ul li a {
+  font-size: 0.9rem;
+}
+.top-bar-section ul li a:hover {
+  background-color: #444 !important;
+}
+.top-bar-section ul li a span {
+  margin-right: 5px;
+}
+
+.reveal-modal {
+  width: 325px;
+}
