@@ -18,4 +18,13 @@ class Module
             ),
         );
     }
+
+    public function getServiceConfig()
+    {
+        return array(
+            'invokables' => array(
+                'ElasticsearchManager' => 'ElasticsearchExplorer\Service\ElasticsearchManager'
+            )
+        );
+    }
 }
