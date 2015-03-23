@@ -1,4 +1,5 @@
 #ElasticsearchExplorerModule
+Elasticsearch status and search functionality as a Zend Framework 2 module. This module uses the official elasticsearch-php client and the front-end framework ZURB Foundation.
 
 ##Installation
 Add the following snippet to your local projects composer.json file:
