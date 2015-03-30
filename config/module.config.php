@@ -37,6 +37,15 @@ return array(
                             ),
                         ),
                     ),
+                    'plugins' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/plugins',
+                            'defaults' => array(
+                                'action' => 'plugins',
+                            ),
+                        ),
+                    ),
                 ),
             ),
         ),
