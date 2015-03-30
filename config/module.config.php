@@ -17,6 +17,18 @@ return array(
                         'action'     => 'index',
                     ),
                 ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'search' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/search',
+                            'defaults' => array(
+                                'action' => 'search',
+                            ),
+                        ),
+                    ),
+                ),
             ),
         ),
     ),
