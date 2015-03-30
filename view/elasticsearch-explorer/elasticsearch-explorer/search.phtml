@@ -1,0 +1,83 @@
+<?php if ($this->indexes): ?>
+<form>
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Select index:
+                <select id="search-select-index">
+                    <option value="-1">...</option>
+                <?php foreach ($this->indexes AS $index): ?>
+                    <option value="<?php echo $index['name']; ?>"<?php if ($this->searchindex==$index['name']) { echo ' selected'; } ?>><?php echo $index['name']; ?></option>
+                <?php endforeach; ?>
+                </select>
+            </label>
+        </div>
+    </div>
+
+    <div class="row<?php if (!$this->searchindex) { echo ' invisible'; } ?>">
+        <div class="large-12 columns">
+            <label>Select type:
+                <select id="search-select-type">
+                    <option value="-1">...</option>
+                <?php foreach ($this->types AS $type): ?>
+                    <option value="<?php echo $type['name']; ?>"<?php if ($this->searchtype==$type['name']) { echo ' selected'; } ?>><?php echo $type['name']; ?></option>
+                <?php endforeach; ?>
+                </select>
+            </label>
+        </div>
+    </div>
+
+    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+        <div class="large-12 columns">
+            <label>Search in field: <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
+                <select class="searchfield" name="searchfield[]" multiple="multiple" required>
+                    <?php foreach ($this->fields AS $field): ?>
+                    <option value="<?php echo $field['name']; ?>"<?php if (in_array($field['name'], $this->searchfield)) { echo ' selected'; } ?>><?php echo $field['name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </label>
+
+            <div id="modalFields" class="reveal-modal" data-reveal>
+                <h5>Fields</h5>
+                <table>
+                    <thead><tr><th><strong>Name</strong></th><th><strong>Type</strong></th><th>Index</th></tr></thead>
+                    <?php foreach ($this->fields AS $field): ?>
+                    <tr><td><?php echo $field['name']; ?></td><td><?php echo $field['type']; ?></td><td><?php echo $field['index']; ?></td></tr>
+                    <?php endforeach; ?>
+                </table>
+                <a class="close-reveal-modal">&#215;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+        <div class="large-12 columns">
+            <label>Search for:
+                <input name="searchterm" type="text" value="<?php if ($this->searchterm!='') { echo $this->searchterm; } ?>" required />
+            </label>
+        </div>
+    </div>
+
+    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+        <div class="large-12 columns">
+            <input class="button" type="submit" value="Start search!" />
+        </div>
+    </div>
+</form>
+<?php endif; ?>
+
+<?php if ($this->results && count($this->results)): ?>
+    <?php foreach ($this->results AS $result): ?>
+    <div class="row search-row">
+        <div class="large-12 columns">
+            <table>
+            <?php foreach ($result['_source'] AS $resultSourceKey => $resultSource): ?>
+                <tr>
+                    <td><strong><?php echo $resultSourceKey; ?></strong></td>
+                    <td><?php echo $resultSource; ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
+    <?php endforeach; ?>
+<?php endif; ?>
