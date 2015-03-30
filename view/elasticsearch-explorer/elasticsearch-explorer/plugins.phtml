@@ -1,0 +1,17 @@
+<?php if ($this->plugins): ?>
+<div class="row">
+    <div class="large-6 columns">
+        <h2>Plugins</h2>
+        <table>
+            <tbody>
+            <?php foreach ($this->plugins AS $plugin): ?>
+                <tr>
+                    <td><a href="http://<?php echo $this->hosts . $plugin['url']; ?>" target="_blank"><strong><?php echo $plugin['name']; ?></strong></a></td>
+                    <td><?php echo $plugin['description']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<?php endif; ?>
