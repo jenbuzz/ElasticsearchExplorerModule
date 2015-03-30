@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="large-6 columns">
+        <h2>Configuration</h2>
+        <table>
+            <tbody>
+            <?php if ($this->hosts): ?>
+                <tr>
+                    <td><strong>Host</strong></td>
+                    <td><?php foreach ($this->hosts AS $host) { echo $host; } ?></td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
