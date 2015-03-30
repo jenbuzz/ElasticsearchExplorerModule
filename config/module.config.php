@@ -28,6 +28,15 @@ return array(
                             ),
                         ),
                     ),
+                    'config' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/config',
+                            'defaults' => array(
+                                'action' => 'config',
+                            ),
+                        ),
+                    ),
                 ),
             ),
         ),
