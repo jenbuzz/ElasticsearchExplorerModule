@@ -25,7 +25,11 @@ class ElasticsearchExplorerController extends AbstractActionController
     {
         $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
 
-        return new ViewModel();
+        $arrConfiguration = $objElasticsearchManager->getConfiguration();
+
+        return new ViewModel(array(
+            'hosts' => $arrConfiguration['hosts'],
+        ));
     }
 
     public function pluginsAction()
