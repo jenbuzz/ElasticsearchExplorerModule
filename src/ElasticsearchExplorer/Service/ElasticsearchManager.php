@@ -28,8 +28,9 @@ class ElasticsearchManager
         $arrDefaultConfiguration = array('hosts' => '');
 
         try {
+            // TODO: get hosts from config file
             $arrDefaultConfiguration = array();
-            $arrConfiguration['hosts'] = array('localhost:9200');
+            $arrDefaultConfiguration['hosts'] = array('localhost:9200');
 
             return $arrDefaultConfiguration;
         } catch (\Exception $e) {
