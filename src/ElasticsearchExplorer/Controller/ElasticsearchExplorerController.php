@@ -36,6 +36,18 @@ class ElasticsearchExplorerController extends AbstractActionController
     {
         $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
 
-        return new ViewModel();
+        $arrPlugins = $objElasticsearchManager->getPlugins();
+
+        // Get the host of elasticsearch.
+        $host = '';
+        $arrConfiguration = $objElasticsearchManager->getConfiguration();
+        if (is_array($arrConfiguration) && isset($arrConfiguration['hosts']) && !empty($arrConfiguration['hosts'])) {
+            $host = $arrConfiguration['hosts'][0];
+        }
+
+        return new ViewModel(array(
+            'plugins' => $arrPlugins,
+            'hosts' => $host,
+        ));
     }
 }
