@@ -1,7 +1,7 @@
 <?php foreach ($indexes AS $index): ?>
 <div class="row">
     <div class="large-6 columns">
-    <a href="#"><h2><?php echo $index['name']; ?></h2></a>
+    <a href="<?php echo $this->url('elasticsearchexplorer/search'); ?>"><h2><?php echo $index['name']; ?></h2></a>
         <table>
             <tr>
                 <td><strong>Total docs</strong></td>
