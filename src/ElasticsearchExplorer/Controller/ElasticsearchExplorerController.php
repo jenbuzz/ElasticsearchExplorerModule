@@ -18,11 +18,62 @@ class ElasticsearchExplorerController extends AbstractActionController
         ));
     }
 
-    public function searchAction()
+    public function searchAction($searchindex = false, $searchtype = false, $searchfield = false, $searchterm = false)
     {
         $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
 
-        return new ViewModel();
+        // TODO: setup routing and change to zf request format
+        // Redirect to a pretty url after search submit.
+        if ($searchindex && $searchtype && !empty($this->get('request')->query->get('searchfield'))  && !empty($this->get('request')->query->get('searchterm'))) {
+            $strSearchfield = "";
+            foreach ($this->get('request')->query->get('searchfield') as $field) {
+                $strSearchfield .= $field.',';
+            }
+            $strSearchfield = rtrim($strSearchfield, ',');
+
+            // Generate redirect url.
+            $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', array(
+                'searchindex' => $searchindex,
+                'searchtype' => $searchtype,
+                'searchfield' => $strSearchfield,
+                'searchterm' => $this->get('request')->query->get('searchterm'),
+            ));
+
+            return $this->redirect($url);
+        }
+
+        // Get indexes.
+        $arrIndexes = $objElasticsearchManager->getIndexStats();
+
+        // Get types.
+        $arrTypes = array();
+        if ($searchindex) {
+            $arrTypes = $objElasticsearchManager->getIndexMappingTypes($searchindex);
+        }
+
+        // Get fields.
+        $arrFields = array();
+        if ($searchindex && $searchtype) {
+            $arrFields = $objElasticsearchManager->getFieldsInIndexType($searchindex, $searchtype);
+        }
+
+        // Get results.
+        $arrResults = array();
+        if ($searchindex && $searchtype && $searchfield && $searchterm) {
+            $arrResults = $objElasticsearchManager->search($searchindex, $searchtype, $searchfield, $searchterm);
+
+            // Create array of searchfields.
+            $searchfield = $objElasticsearchManager->convertSearchfieldsToArray($searchfield);
+        }
+
+        return new ViewModel(array(
+            'searchindex' => $searchindex,
+            'searchtype' => $searchtype,
+            'searchfield' => $searchfield,
+            'searchterm' => $searchterm,
+            'indexes' => $arrIndexes,
+            'types' => $arrTypes,
+        ));
     }
 
     public function configAction()
