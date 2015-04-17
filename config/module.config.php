@@ -32,15 +32,24 @@ return array(
                             'searchindex' => array(
                                 'type' => 'segment',
                                 'options' => array(
-                                    'route' => '/[:searchindex]',
+                                    'route' => '/[:searchindex]/[:searchtype]/[:searchfield]/[:searchterm]',
+                                    'defaults' => array(
+                                        'searchindex' => '',
+                                        'searchtype' => '',
+                                        'searchfield' => '',
+                                        'searchterm' => '',
+                                    ),
                                     'constraints' => array(
                                         'searchindex' => '[a-zA-Z0-9_-]+',
+                                        'searchtype' => '[a-zA-Z0-9_-]+',
+                                        'searchfield' => '[a-zA-Z0-9_-]+',
+                                        'searchterm' => '[a-zA-Z0-9_-]+',
                                     ),
                                     'defaults' => array(
                                         'action' => 'search',
                                     ),
                                 ),
-                                'may_terminate' => true,
+                                /*'may_terminate' => true,
                                 'child_routes' => array(
                                     'searchtype' => array(
                                         'type' => 'segment',
@@ -84,7 +93,7 @@ return array(
                                             ),
                                         ),
                                     ),
-                                ),
+                                ),*/
                             ),
                         ),
                     ),
