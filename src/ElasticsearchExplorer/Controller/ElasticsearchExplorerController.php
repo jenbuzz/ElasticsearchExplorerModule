@@ -22,21 +22,26 @@ class ElasticsearchExplorerController extends AbstractActionController
     {
         $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
 
+        $searchindex = $this->params('searchindex');
+        $searchtype = $this->params('searchtype');
+        $searchfield = $this->params('searchfield');
+        $searchterm = $this->params('searchterm');
+        
         // TODO: setup routing and change to zf request format
         // Redirect to a pretty url after search submit.
-        if ($searchindex && $searchtype && !empty($this->get('request')->query->get('searchfield'))  && !empty($this->get('request')->query->get('searchterm'))) {
+        if ($this->params('searchindex') && $this->params('searchtype') && !empty($this->params('searchfield'))  && !empty($this->params('searchterm'))) {
             $strSearchfield = "";
-            foreach ($this->get('request')->query->get('searchfield') as $field) {
+            foreach ($this->params('searchfield') as $field) {
                 $strSearchfield .= $field.',';
             }
             $strSearchfield = rtrim($strSearchfield, ',');
 
             // Generate redirect url.
             $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', array(
-                'searchindex' => $searchindex,
-                'searchtype' => $searchtype,
+                'searchindex' => $this->params('searchindex'),
+                'searchtype' => $this->params('searchtype'),
                 'searchfield' => $strSearchfield,
-                'searchterm' => $this->get('request')->query->get('searchterm'),
+                'searchterm' => $this->params('searchterm'),
             ));
 
             return $this->redirect($url);
