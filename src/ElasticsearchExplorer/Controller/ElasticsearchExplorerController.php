@@ -27,7 +27,6 @@ class ElasticsearchExplorerController extends AbstractActionController
         $searchfield = $this->params('searchfield');
         $searchterm = $this->params('searchterm');
         
-        // TODO: setup routing and change to zf request format
         // Redirect to a pretty url after search submit.
         if ($searchindex && $searchtype && !empty($searchfield)  && !empty($searchterm)) {
             $strSearchfield = "";
