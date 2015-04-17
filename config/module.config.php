@@ -34,10 +34,55 @@ return array(
                                 'options' => array(
                                     'route' => '/[:searchindex]',
                                     'constraints' => array(
-                                        'searchindex' => '[a-zA-Z0-9_-]+',
+                                        'searchindex' => '[a-zA-Z0-9_\/-]+',
                                     ),
                                     'defaults' => array(
                                         'action' => 'search',
+                                    ),
+                                ),
+                                'may_terminate' => true,
+                                'child_routes' => array(
+                                    'searchtype' => array(
+                                        'type' => 'segment',
+                                        'options' => array(
+                                            'route' => '/[:searchtype]',
+                                            'constraints' => array(
+                                                'searchtype' => '[a-zA-Z0-9_\/-]+',
+                                            ),
+                                            'defaults' => array(
+                                                'action' => 'search',
+                                            ),
+                                        ),
+                                        'may_terminate' => true,
+                                        'child_routes' => array(
+                                            'searchfield' => array(
+                                                'type' => 'segment',
+                                                'options' => array(
+                                                    'route' => '/[:searchfield]',
+                                                    'constraints' => array(
+                                                        'searchfield' => '[a-zA-Z0-9_\/-]+',
+                                                    ),
+                                                    'defaults' => array(
+                                                        'action' => 'search',
+                                                    ),
+                                                ),
+                                                'may_terminate' => true,
+                                                'child_routes' => array(
+                                                    'searchterm' => array(
+                                                        'type' => 'segment',
+                                                        'options' => array(
+                                                            'route' => '/[:searchterm]',
+                                                            'constraints' => array(
+                                                                'searchterm' => '[a-zA-Z0-9_\/-]+',
+                                                            ),
+                                                            'defaults' => array(
+                                                                'action' => 'search',
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
