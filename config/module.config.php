@@ -27,6 +27,21 @@ return array(
                                 'action' => 'search',
                             ),
                         ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'searchindex' => array(
+                                'type' => 'segment',
+                                'options' => array(
+                                    'route' => '/[:searchindex]',
+                                    'constraints' => array(
+                                        'searchindex' => '[a-zA-Z0-9_-]+',
+                                    ),
+                                    'defaults' => array(
+                                        'action' => 'search',
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                     'config' => array(
                         'type' => 'segment',
