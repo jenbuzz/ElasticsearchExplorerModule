@@ -34,7 +34,7 @@ return array(
                                 'options' => array(
                                     'route' => '/[:searchindex]',
                                     'constraints' => array(
-                                        'searchindex' => '[a-zA-Z0-9_\/-]+',
+                                        'searchindex' => '[a-zA-Z0-9_-]+',
                                     ),
                                     'defaults' => array(
                                         'action' => 'search',
@@ -47,7 +47,7 @@ return array(
                                         'options' => array(
                                             'route' => '/[:searchtype]',
                                             'constraints' => array(
-                                                'searchtype' => '[a-zA-Z0-9_\/-]+',
+                                                'searchtype' => '[a-zA-Z0-9_-]+',
                                             ),
                                             'defaults' => array(
                                                 'action' => 'search',
@@ -60,7 +60,7 @@ return array(
                                                 'options' => array(
                                                     'route' => '/[:searchfield]',
                                                     'constraints' => array(
-                                                        'searchfield' => '[a-zA-Z0-9_\/-]+',
+                                                        'searchfield' => '[a-zA-Z0-9_-]+',
                                                     ),
                                                     'defaults' => array(
                                                         'action' => 'search',
@@ -73,7 +73,7 @@ return array(
                                                         'options' => array(
                                                             'route' => '/[:searchterm]',
                                                             'constraints' => array(
-                                                                'searchterm' => '[a-zA-Z0-9_\/-]+',
+                                                                'searchterm' => '[a-zA-Z0-9_-]+',
                                                             ),
                                                             'defaults' => array(
                                                                 'action' => 'search',
