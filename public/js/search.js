@@ -4,7 +4,7 @@ $(document).ready(function() {
   var doRedirectSearch = function(value) {
     var arrUrl = $(location).attr('href').split('/');
     if (value!=-1 && value!=arrUrl[arrUrl.length-2]) {
-      document.location+= value;
+      document.location+= '/'+value;
     }
   };
 
