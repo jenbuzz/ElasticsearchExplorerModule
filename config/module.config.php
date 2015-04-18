@@ -32,7 +32,7 @@ return array(
                             'searchindex' => array(
                                 'type' => 'segment',
                                 'options' => array(
-                                    'route' => '/[:searchindex][/:searchtype][/:searchfield][/:searchterm]/',
+                                    'route' => '/[:searchindex][/:searchtype][/:searchfield][/:searchterm]',
                                     'defaults' => array(
                                         'searchindex' => '',
                                         'searchtype' => '',
