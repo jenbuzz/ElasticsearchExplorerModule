@@ -20,6 +20,8 @@ class ElasticsearchExplorerController extends AbstractActionController
 
     public function searchAction()
     {
+        $queryParams = $this->getRequest()->getQuery();
+
         $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
 
         $searchindex = $this->params('searchindex');
@@ -28,9 +30,9 @@ class ElasticsearchExplorerController extends AbstractActionController
         $searchterm = $this->params('searchterm');
         
         // Redirect to a pretty url after search submit.
-        if ($searchindex && $searchtype && !empty($searchfield)  && !empty($searchterm)) {
+        if ($searchindex && $searchtype && !empty($queryParams['searchfield'])  && !empty($queryParams['searchterm'])) {
             $strSearchfield = "";
-            foreach ($searchfield as $field) {
+            foreach ($queryParams['searchfield'] as $field) {
                 $strSearchfield .= $field.',';
             }
             $strSearchfield = rtrim($strSearchfield, ',');
@@ -40,7 +42,7 @@ class ElasticsearchExplorerController extends AbstractActionController
                 'searchindex' => $searchindex,
                 'searchtype' => $searchtype,
                 'searchfield' => $strSearchfield,
-                'searchterm' => $searchterm,
+                'searchterm' => $queryParams['searchterm'],
             ));
 
             return $this->redirect($url);
