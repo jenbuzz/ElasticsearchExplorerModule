@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     watch: {
       scripts: {
-        files: ['public/js/main.js', 'public/js/search.js'],
+        files: ['public/js/main.js', 'public/js/search.js', 'sass/main.scss'],
         tasks: ['compile'],
         options: {
           spawn: false
