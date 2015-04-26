@@ -38,14 +38,12 @@ class ElasticsearchExplorerController extends AbstractActionController
             $strSearchfield = rtrim($strSearchfield, ',');
 
             // Generate redirect url.
-            $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', array(
+            return $this->redirect()->toRoute('elasticsearchexplorer/search/searchindex', array(
                 'searchindex' => $searchindex,
                 'searchtype' => $searchtype,
                 'searchfield' => $strSearchfield,
                 'searchterm' => $queryParams['searchterm'],
             ));
-
-            return $this->redirect($url);
         }
 
         // Get indexes.
