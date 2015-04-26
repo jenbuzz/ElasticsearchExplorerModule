@@ -78,6 +78,7 @@ class ElasticsearchExplorerController extends AbstractActionController
             'indexes' => $arrIndexes,
             'fields' => $arrFields,
             'types' => $arrTypes,
+            'results' => $arrResults,
         ));
     }
 
