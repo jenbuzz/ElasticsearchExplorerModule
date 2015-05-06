@@ -7,7 +7,7 @@ class ElasticsearchManager
     protected $client = false;
     protected $isConnected = false;
 
-    public function __construct()
+    public function __construct($config)
     {
         try {
             $this->client = new \Elasticsearch\Client($this->getConfiguration());

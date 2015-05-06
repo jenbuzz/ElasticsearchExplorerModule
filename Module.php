@@ -5,7 +5,18 @@ class Module
 {
     public function getConfig()
     {
-        return include __DIR__ . '/config/module.config.php';
+        $config = array();
+
+        $configFiles = array(
+            include __DIR__ . '/config/module.config.php',
+            include __DIR__ . '/config/elasticsearch.config.php',
+        );
+
+        foreach ($configFiles as $file) {
+            $config = \Zend\Stdlib\ArrayUtils::merge($config, $file);
+        }
+
+        return $config;
     }
 
     public function getAutoloaderConfig()
@@ -22,8 +33,12 @@ class Module
     public function getServiceConfig()
     {
         return array(
-            'invokables' => array(
-                'ElasticsearchManager' => 'ElasticsearchExplorer\Service\ElasticsearchManager'
+            'factories' => array(
+                'ElasticsearchManager' => function($sm) {
+                    $config = $sm->get('config');
+                    $objElasticsearchManager = new \ElasticsearchExplorer\Service\ElasticsearchManager($config['elasticsearch']);
+                    return $objElasticsearchManager;
+                },
             )
         );
     }
