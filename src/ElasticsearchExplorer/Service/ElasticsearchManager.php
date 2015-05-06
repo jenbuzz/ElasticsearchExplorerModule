@@ -6,9 +6,12 @@ class ElasticsearchManager
 {
     protected $client = false;
     protected $isConnected = false;
+    protected $config;
 
     public function __construct($config)
     {
+        $this->config = $config;
+
         try {
             $this->client = new \Elasticsearch\Client($this->getConfiguration());
             if ($this->client->ping()) {
@@ -28,9 +31,8 @@ class ElasticsearchManager
         $arrDefaultConfiguration = array('hosts' => '');
 
         try {
-            // TODO: get hosts from config file
             $arrDefaultConfiguration = array();
-            $arrDefaultConfiguration['hosts'] = array('localhost:9200');
+            $arrDefaultConfiguration['hosts'] = array($this->config['hosts']);
 
             return $arrDefaultConfiguration;
         } catch (\Exception $e) {
