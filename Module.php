@@ -36,7 +36,9 @@ class Module
             'factories' => array(
                 'ElasticsearchManager' => function($sm) {
                     $config = $sm->get('config');
-                    $objElasticsearchManager = new \ElasticsearchExplorer\Service\ElasticsearchManager($config['elasticsearch']);
+                    $configElasticsearch = (isset($config['elasticsearch'])) ? $config['elasticsearch'] : array();
+
+                    $objElasticsearchManager = new \ElasticsearchExplorer\Service\ElasticsearchManager($configElasticsearch);
                     return $objElasticsearchManager;
                 },
             )
