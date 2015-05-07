@@ -31,16 +31,11 @@ class ElasticsearchManager
      */
     public function getConfiguration()
     {
-        $arrDefaultConfiguration = array('hosts' => '');
+        $arrDefaultConfiguration = array(
+            'hosts' => array($this->config['hosts'])
+        );
 
-        try {
-            $arrDefaultConfiguration = array();
-            $arrDefaultConfiguration['hosts'] = array($this->config['hosts']);
-
-            return $arrDefaultConfiguration;
-        } catch (\Exception $e) {
-            return $arrDefaultConfiguration;
-        }
+        return $arrDefaultConfiguration;
     }
 
     /**
