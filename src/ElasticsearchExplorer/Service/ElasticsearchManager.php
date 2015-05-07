@@ -6,11 +6,14 @@ class ElasticsearchManager
 {
     protected $client = false;
     protected $isConnected = false;
-    protected $config;
+    protected $config = array();
 
-    public function __construct($config)
+    public function __construct(array $config)
     {
         $this->config = $config;
+        if (!isset($config['hosts'])) {
+            $this->config['hosts'] = 'localhost:9200';
+        }
 
         try {
             $this->client = new \Elasticsearch\Client($this->getConfiguration());
