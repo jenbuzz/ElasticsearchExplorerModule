@@ -40,10 +40,10 @@ return array(
                                         'searchterm' => '',
                                     ),
                                     'constraints' => array(
-                                        'searchindex' => '[a-zA-Z0-9_-]+',
-                                        'searchtype' => '[a-zA-Z0-9_-]+',
-                                        'searchfield' => '[a-zA-Z0-9_-]+',
-                                        'searchterm' => '[a-zA-Z0-9_-]+',
+                                        'searchindex' => '[a-zA-Z0-9_\-]+',
+                                        'searchtype' => '[a-zA-Z0-9_\-]+',
+                                        'searchfield' => '[a-zA-Z0-9_\-,]+',
+                                        'searchterm' => '[a-zA-Z0-9_\-]+',
                                     ),
                                     'defaults' => array(
                                         'action' => 'search',
