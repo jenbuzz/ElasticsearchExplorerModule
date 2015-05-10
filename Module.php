@@ -5,7 +5,7 @@ class Module
 {
     public function onBootstrap($e)
     {
-        $e->getApplication()->getEventManager()->getSharedManager()->attach('Zend\Mvc\Controller\AbstractController', 'dispatch', function($e) {
+        $e->getApplication()->getEventManager()->getSharedManager()->attach('Zend\Mvc\Controller\AbstractController', 'dispatch', function ($e) {
             $controller      = $e->getTarget();
             $controllerClass = get_class($controller);
             $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
@@ -21,8 +21,8 @@ class Module
         $config = array();
 
         $configFiles = array(
-            include __DIR__ . '/config/module.config.php',
-            include __DIR__ . '/config/elasticsearch.config.php',
+            include __DIR__.'/config/module.config.php',
+            include __DIR__.'/config/elasticsearch.config.php',
         );
 
         foreach ($configFiles as $file) {
@@ -37,7 +37,7 @@ class Module
         return array(
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    __NAMESPACE__ => __DIR__.'/src/'.__NAMESPACE__,
                 ),
             ),
         );
@@ -47,14 +47,15 @@ class Module
     {
         return array(
             'factories' => array(
-                'ElasticsearchManager' => function($sm) {
+                'ElasticsearchManager' => function ($sm) {
                     $config = $sm->get('config');
                     $configElasticsearch = (isset($config['elasticsearch'])) ? $config['elasticsearch'] : array();
 
                     $objElasticsearchManager = new \ElasticsearchExplorer\Service\ElasticsearchManager($configElasticsearch);
+
                     return $objElasticsearchManager;
                 },
-            )
+            ),
         );
     }
 }
