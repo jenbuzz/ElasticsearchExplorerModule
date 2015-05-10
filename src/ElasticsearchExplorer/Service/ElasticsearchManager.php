@@ -32,7 +32,7 @@ class ElasticsearchManager
     public function getConfiguration()
     {
         $arrDefaultConfiguration = array(
-            'hosts' => array($this->config['hosts'])
+            'hosts' => array($this->config['hosts']),
         );
 
         return $arrDefaultConfiguration;
