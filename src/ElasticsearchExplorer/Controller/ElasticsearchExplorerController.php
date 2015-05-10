@@ -28,7 +28,7 @@ class ElasticsearchExplorerController extends AbstractActionController
         $searchtype = $this->params('searchtype');
         $searchfield = $this->params('searchfield');
         $searchterm = $this->params('searchterm');
-        
+
         // Redirect to a pretty url after search submit.
         if ($searchindex && $searchtype && !empty($queryParams['searchfield'])  && !empty($queryParams['searchterm'])) {
             $strSearchfield = "";
