@@ -14,6 +14,9 @@ class Module
                 $controller->layout($config['module_layouts'][$moduleNamespace]);
             }
         }, 100);
+
+        $translator = $e->getApplication()->getServiceManager()->get('translator');
+        $translator->setLocale('en_US');
     }
 
     public function getConfig()
