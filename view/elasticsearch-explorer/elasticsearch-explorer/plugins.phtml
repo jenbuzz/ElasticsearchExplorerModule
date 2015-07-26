@@ -1,7 +1,7 @@
 <?php if ($this->plugins): ?>
 <div class="row">
     <div class="large-6 columns">
-        <h2>Plugins</h2>
+        <h2><?php echo $this->translate('Plugins', __NAMESPACE__); ?></h2>
         <table>
             <tbody>
             <?php foreach ($this->plugins AS $plugin): ?>

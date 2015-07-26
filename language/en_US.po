@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ElasticsearchExplorer\n"
-"POT-Creation-Date: 2015-07-26 15:50+0100\n"
-"PO-Revision-Date: 2015-07-26 15:50+0100\n"
+"POT-Creation-Date: 2015-07-26 15:53+0100\n"
+"PO-Revision-Date: 2015-07-26 15:53+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,7 @@ msgid "Configuration"
 msgstr "Configuration"
 
 #: layout/layout.phtml:48
+#: elasticsearch-explorer/elasticsearch-explorer/plugins.phtml:4
 msgid "Plugins"
 msgstr "Plugins"
 
