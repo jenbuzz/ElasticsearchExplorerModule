@@ -37,7 +37,7 @@
             </label>
 
             <div id="modalFields" class="reveal-modal" data-reveal>
-                <h5>Fields</h5>
+                <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>
                 <table>
                     <thead><tr><th><strong><?php echo $this->translate('Name', __NAMESPACE__); ?></strong></th><th><strong><?php echo $this->translate('Type', __NAMESPACE__); ?></strong></th><th><?php echo $this->translate('Index', __NAMESPACE__); ?></th></tr></thead>
                     <?php foreach ($this->fields AS $field): ?>

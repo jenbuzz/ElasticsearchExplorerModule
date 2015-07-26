@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ElasticsearchExplorer\n"
-"POT-Creation-Date: 2015-07-26 15:44+0100\n"
-"PO-Revision-Date: 2015-07-26 15:45+0100\n"
+"POT-Creation-Date: 2015-07-26 15:46+0100\n"
+"PO-Revision-Date: 2015-07-26 15:46+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -44,6 +44,10 @@ msgstr "Select type"
 #: elasticsearch-explorer/elasticsearch-explorer/search.phtml:31
 msgid "Search in field"
 msgstr "Search in field"
+
+#: elasticsearch-explorer/elasticsearch-explorer/search.phtml:40
+msgid "Fields"
+msgstr "Fields"
 
 #: elasticsearch-explorer/elasticsearch-explorer/search.phtml:42
 msgid "Name"
