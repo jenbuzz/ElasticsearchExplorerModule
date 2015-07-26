@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ElasticsearchExplorer\n"
-"POT-Creation-Date: 2015-07-19 14:05+0100\n"
-"PO-Revision-Date: 2015-07-19 14:44+0100\n"
+"POT-Creation-Date: 2015-07-26 15:39+0100\n"
+"PO-Revision-Date: 2015-07-26 15:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,22 +13,30 @@ msgstr ""
 "X-Poedit-Basepath: ./../view/\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: layout/layout.phtml:27
+#: layout/layout.phtml:30
 msgid "Home"
 msgstr "Home"
 
-#: layout/layout.phtml:28
+#: layout/layout.phtml:36
 msgid "Search"
 msgstr "Search"
 
-#: layout/layout.phtml:29
+#: layout/layout.phtml:42
 msgid "Configuration"
 msgstr "Configuration"
 
-#: layout/layout.phtml:30
+#: layout/layout.phtml:48
 msgid "Plugins"
 msgstr "Plugins"
 
-#: layout/layout.phtml:31
+#: layout/layout.phtml:54
 msgid "GitHub"
 msgstr "GitHub"
+
+#: elasticsearch-explorer/elasticsearch-explorer/index.phtml:7
+msgid "Total docs"
+msgstr "Total docs"
+
+#: elasticsearch-explorer/elasticsearch-explorer/index.phtml:11
+msgid "Total size"
+msgstr "Total size"
