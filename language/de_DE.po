@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ElasticsearchExplorer\n"
+"POT-Creation-Date: 2015-07-31 20:06+0100\n"
+"PO-Revision-Date: 2015-07-31 20:09+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ./../view\n"
+
+#: ../view/layout/layout.phtml:30
+msgid "Home"
+msgstr "Start"
+
+#: ../view/layout/layout.phtml:36
+msgid "Search"
+msgstr "Suche"
+
+#: ../view/layout/layout.phtml:42
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/config.phtml:4
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: ../view/layout/layout.phtml:48
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/plugins.phtml:4
+msgid "Plugins"
+msgstr "Erweiterungen"
+
+#: ../view/layout/layout.phtml:54
+msgid "GitHub"
+msgstr "GitHub"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:5
+msgid "Select index"
+msgstr "Index auswählen"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:18
+msgid "Select type"
+msgstr "Typ auswählen"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:31
+msgid "Search in field"
+msgstr "Suche in ausgewählten Feldern"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:40
+msgid "Fields"
+msgstr "Felder"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:44
+msgid "Name"
+msgstr "Name"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:45
+msgid "Type"
+msgstr "Typ"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:46
+msgid "Index"
+msgstr "Index"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:60
+msgid "Search for"
+msgstr "Suche nach"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:68
+msgid "Start search"
+msgstr "Suche starten"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/index.phtml:7
+msgid "Total docs"
+msgstr "Anzahl Dokumente"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/index.phtml:11
+msgid "Total size"
+msgstr "Größe"
+
+#: ../view/elasticsearch-explorer/elasticsearch-explorer/config.phtml:8
+msgid "Hosts"
+msgstr "Hosts"
