@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ElasticsearchExplorer\n"
-"POT-Creation-Date: 2015-07-31 20:06+0100\n"
-"PO-Revision-Date: 2015-07-31 20:09+0100\n"
+"POT-Creation-Date: 2015-08-02 11:52+0100\n"
+"PO-Revision-Date: 2015-08-02 11:52+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,9 +13,13 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./../view\n"
 
+#: ../view/layout/layout.phtml:22
+msgid "Menu"
+msgstr "Menü"
+
 #: ../view/layout/layout.phtml:30
 msgid "Home"
-msgstr "Start"
+msgstr "Startseite"
 
 #: ../view/layout/layout.phtml:36
 msgid "Search"
@@ -65,7 +69,7 @@ msgstr "Index"
 
 #: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:60
 msgid "Search for"
-msgstr "Suche nach"
+msgstr "Suchbegriff"
 
 #: ../view/elasticsearch-explorer/elasticsearch-explorer/search.phtml:68
 msgid "Start search"
