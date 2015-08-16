@@ -7,6 +7,9 @@ use Zend\View\Model\ViewModel;
 
 class ElasticsearchExplorerController extends AbstractActionController
 {
+    /**
+     * Home.
+     */
     public function indexAction()
     {
         $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
@@ -18,6 +21,9 @@ class ElasticsearchExplorerController extends AbstractActionController
         ));
     }
 
+    /**
+     * Search.
+     */
     public function searchAction()
     {
         $queryParams = $this->getRequest()->getQuery();
@@ -82,6 +88,9 @@ class ElasticsearchExplorerController extends AbstractActionController
         ));
     }
 
+    /**
+     * Configuration.
+     */
     public function configAction()
     {
         $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
@@ -93,6 +102,9 @@ class ElasticsearchExplorerController extends AbstractActionController
         ));
     }
 
+    /**
+     * Plugins.
+     */
     public function pluginsAction()
     {
         $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');

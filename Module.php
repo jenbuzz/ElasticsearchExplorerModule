@@ -51,6 +51,7 @@ class Module
         return array(
             'factories' => array(
                 'ElasticsearchManager' => function ($sm) {
+                    // Get Elasticsearch configuration from config/elasticsearch.config.php and pass it to service
                     $config = $sm->get('config');
                     $configElasticsearch = (isset($config['elasticsearch'])) ? $config['elasticsearch'] : array();
 

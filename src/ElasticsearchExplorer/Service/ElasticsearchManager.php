@@ -12,6 +12,7 @@ class ElasticsearchManager
     {
         $this->config = $config;
         if (!isset($config['hosts'])) {
+            // Add default hosts if none is passed
             $this->config['hosts'] = 'localhost:9200';
         }
 
