@@ -1,7 +1,11 @@
 <?php foreach ($indexes AS $index): ?>
 <div class="row">
     <div class="large-6 columns">
-    <a href="<?php echo $this->url('elasticsearchexplorer/search/searchindex', array('searchindex' => $index['name'])); ?>"><h2><?php echo $index['name']; ?></h2></a>
+        <h2>
+            <a href="<?php echo $this->url('elasticsearchexplorer/search/searchindex', array('searchindex' => $index['name'])); ?>">
+                <?php echo $index['name']; ?>
+            </a>
+        </h2>
         <table>
             <tr>
                 <td><strong><?php echo $this->translate('Total docs', __NAMESPACE__); ?></strong></td>
