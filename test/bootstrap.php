@@ -28,8 +28,8 @@ class Bootstrap
                     '../../../config/autoload/{,*.}{global,local}.php',
                 ),
                 'module_paths' => array(
-                    'module',
-                    'vendor',
+                    getenv('ZF2_BASE_PATH') . '/module',
+                    getenv('ZF2_BASE_PATH') . '/vendor',
                 ),
             ),
         );
@@ -116,5 +116,9 @@ class Bootstrap
         return $dir . '/' . $path;
     }
 }
+
+// TODO: fix path env
+putenv('ZF2_BASE_PATH=/var/www/zf');
+putenv('ZF2_PATH=/var/www/zf/vendor/zendframework/zendframework/library');
 
 Bootstrap::init();
