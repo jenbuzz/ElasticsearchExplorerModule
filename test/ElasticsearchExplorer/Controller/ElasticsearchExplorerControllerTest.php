@@ -24,7 +24,7 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
         $serviceManager = Bootstrap::getServiceManager();
         $this->controller = new ElasticsearchExplorerController();
         $this->request    = new Request();
-        $this->routeMatch = new RouteMatch(array('controller' => 'index'));
+        $this->routeMatch = new RouteMatch(array('controller' => 'elasticsearchexplorer'));
         $this->event      = new MvcEvent();
         $config = $serviceManager->get('Config');
         $routerConfig = isset($config['router']) ? $config['router'] : array();
