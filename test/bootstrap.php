@@ -19,12 +19,20 @@ class Bootstrap
 
     public static function init()
     {
-        // Load the user-defined test configuration file, if it exists; otherwise, load
-        if (is_readable(__DIR__ . '/TestConfig.php')) {
-            $testConfig = include __DIR__ . '/TestConfig.php';
-        } else {
-            $testConfig = include __DIR__ . '/TestConfig.php.dist';
-        }
+        $testConfig = array(
+            'modules' => array(
+                'ElasticsearchExplorer',
+            ),
+            'module_listener_options' => array(
+                'config_glob_paths'    => array(
+                    '../../../config/autoload/{,*.}{global,local}.php',
+                ),
+                'module_paths' => array(
+                    'module',
+                    'vendor',
+                ),
+            ),
+        );
 
         $zf2ModulePaths = array();
 
