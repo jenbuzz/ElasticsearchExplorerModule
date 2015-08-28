@@ -30,5 +30,8 @@ Create a symlink of the public directory in this module in the applications publ
 ln -s /var/www/ElasticsearchExplorer/public/ /var/www/zf/public/elasticsearch-explorer-public
 ```
 
+##Testing
+Run PHPUnit from ROOT_DIRECTORY/test/ of this module.
+
 ##License
 ElasticsearchExplorerModule is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
