@@ -18,6 +18,7 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
     protected $response;
     protected $routeMatch;
     protected $event;
+    protected $elasticsearchClientMock;
 
     protected function setUp()
     {
@@ -34,21 +35,21 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
         $this->event->setRouteMatch($this->routeMatch);
         $this->controller->setEvent($this->event);
         $this->controller->setServiceLocator($serviceManager);
+
+        $this->elasticsearchClientMock = $this->getMockBuilder('ElasticsearchExplorer\Service\ElasticsearchManager')
+                                              ->disableOriginalConstructor()
+                                              ->getMock();
     }
 
     public function testIndexActionCanBeAccessed()
     {
-        $elasticsearchClientMock = $this->getMockBuilder('ElasticsearchExplorer\Service\ElasticsearchManager')
-                                        ->disableOriginalConstructor()
-                                        ->getMock();
-
-        $elasticsearchClientMock->expects($this->once())
-                                ->method('getIndexStats')
-                                ->will($this->returnValue(array()));
+        $this->elasticsearchClientMock->expects($this->once())
+                                      ->method('getIndexStats')
+                                      ->will($this->returnValue(array()));
 
         $serviceManager = $this->controller->getServiceLocator();
         $serviceManager->setAllowOverride(true);
-        $serviceManager->setService('ElasticsearchManager', $elasticsearchClientMock);
+        $serviceManager->setService('ElasticsearchManager', $this->elasticsearchClientMock);
 
         $this->routeMatch->setParam('action', 'index');
 
