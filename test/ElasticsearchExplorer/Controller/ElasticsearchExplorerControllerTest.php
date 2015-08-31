@@ -41,6 +41,11 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
                                               ->getMock();
     }
 
+    public function tearDown()
+    {
+        unset($this->elasticsearchClientMock);
+    }
+
     public function testIndexActionCanBeAccessed()
     {
         $this->elasticsearchClientMock->expects($this->once())
