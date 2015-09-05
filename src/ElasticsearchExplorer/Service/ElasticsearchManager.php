@@ -17,11 +17,19 @@ class ElasticsearchManager
         }
 
         try {
-            $this->client = new \Elasticsearch\Client($this->getConfiguration());
-            if ($this->client->ping()) {
-                $this->isConnected = true;
+            $configuration = $this->getConfiguration();
+
+            $clientBuilder = \Elasticsearch\ClientBuilder::create();
+            $clientBuilder->setHosts($configuration['hosts']);
+            $this->client = $clientBuilder->build();
+
+            try {
+                if ($this->client->ping()) {
+                    $this->isConnected = true;
+                }
+            } catch (\Elasticsearch\Common\Exceptions\Missing404Exception $e) {
             }
-        } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
+        } catch (\Elasticsearch\Common\Exceptions\NoNodesAvailableException $e) {
         }
     }
 
