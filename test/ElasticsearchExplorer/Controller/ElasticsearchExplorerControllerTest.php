@@ -99,4 +99,26 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(200, $response->getStatusCode());
     }
+
+    public function testPluginsActionCanBeAccessed()
+    {
+        $this->elasticsearchClientMock->expects($this->once())
+                                      ->method('getPlugins')
+                                      ->will($this->returnValue(array()));
+
+        $this->elasticsearchClientMock->expects($this->once())
+                                      ->method('getConfiguration')
+                                      ->will($this->returnValue(array('hosts'=>'')));
+
+        $serviceManager = $this->controller->getServiceLocator();
+        $serviceManager->setAllowOverride(true);
+        $serviceManager->setService('ElasticsearchManager', $this->elasticsearchClientMock);
+
+        $this->routeMatch->setParam('action', 'plugins');
+
+        $result = $this->controller->dispatch($this->request);
+        $response = $this->controller->getResponse();
+
+        $this->assertEquals(200, $response->getStatusCode());
+    }
 }
