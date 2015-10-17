@@ -20,6 +20,9 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
     protected $event;
     protected $elasticsearchClientMock;
 
+    /**
+     * Setup testing environment.
+     */
     protected function setUp()
     {
         $serviceManager = Bootstrap::getServiceManager();
@@ -41,11 +44,18 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
                                               ->getMock();
     }
 
+    /**
+     * Cleanup testing environment.
+     */
     public function tearDown()
     {
         unset($this->elasticsearchClientMock);
     }
 
+    /**
+     * Testing access to index action.
+     * Asserting http status code to 200.
+     */
     public function testIndexActionCanBeAccessed()
     {
         $this->elasticsearchClientMock->expects($this->once())
@@ -64,6 +74,10 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    /**
+     * Testing access to search action.
+     * Asserting http status code to 200.
+     */
     public function testSearchActionCanBeAccessed()
     {
         $this->elasticsearchClientMock->expects($this->once())
@@ -82,6 +96,10 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    /**
+     * Testing access to config action.
+     * Asserting http status code to 200.
+     */
     public function testConfigActionCanBeAccessed()
     {
         $this->elasticsearchClientMock->expects($this->once())
@@ -100,6 +118,10 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    /**
+     * Testing access to plugins action.
+     * Asserting http status code to 200.
+     */
     public function testPluginsActionCanBeAccessed()
     {
         $this->elasticsearchClientMock->expects($this->once())
