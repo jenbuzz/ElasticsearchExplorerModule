@@ -17,6 +17,9 @@ class Bootstrap
     protected static $config;
     protected static $bootstrap;
 
+    /**
+     * Setup testing environment.
+     */
     public static function init()
     {
         $testConfig = array(
@@ -64,16 +67,25 @@ class Bootstrap
         static::$config = $config;
     }
 
+    /**
+     * Get the service manager (used in tests).
+     */
     public static function getServiceManager()
     {
         return static::$serviceManager;
     }
 
+    /**
+     * Get the configuration (used in tests).
+     */
     public static function getConfig()
     {
         return static::$config;
     }
 
+    /**
+     * Setup autoloading for testing.
+     */
     protected static function initAutoloader()
     {
         $vendorPath = static::findParentPath('vendor');
@@ -92,6 +104,9 @@ class Bootstrap
         ));
     }
 
+    /**
+     * Get the parent path of a path.
+     */
     protected static function findParentPath($path)
     {
         $dir = __DIR__;
