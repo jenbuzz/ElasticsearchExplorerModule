@@ -104,7 +104,7 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
     {
         $this->elasticsearchClientMock->expects($this->once())
                                       ->method('getConfiguration')
-                                      ->will($this->returnValue(array('hosts'=>'')));
+                                      ->will($this->returnValue(array('hosts' => '')));
 
         $serviceManager = $this->controller->getServiceLocator();
         $serviceManager->setAllowOverride(true);
@@ -130,7 +130,7 @@ class ElasticsearchExplorerControllerTest extends \PHPUnit_Framework_TestCase
 
         $this->elasticsearchClientMock->expects($this->once())
                                       ->method('getConfiguration')
-                                      ->will($this->returnValue(array('hosts'=>'')));
+                                      ->will($this->returnValue(array('hosts' => '')));
 
         $serviceManager = $this->controller->getServiceLocator();
         $serviceManager->setAllowOverride(true);
