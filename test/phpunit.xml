@@ -1,4 +1,4 @@
-<phpunit bootstrap="./bootstrap.php" colors="true">
+<phpunit bootstrap="./Bootstrap.php" colors="true">
     <testsuites>
         <testsuite name="ElasticsearchExplorer Test Suite">
             <directory>./</directory>
