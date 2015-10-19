@@ -6,7 +6,6 @@ use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Stdlib\ArrayUtils;
-use RuntimeException;
 
 error_reporting(E_ALL | E_STRICT);
 chdir(__DIR__);
@@ -47,7 +46,7 @@ class Bootstrap
             }
         }
 
-        $zf2ModulePaths = implode(PATH_SEPARATOR, $zf2ModulePaths) . PATH_SEPARATOR;
+        $zf2ModulePaths = implode(PATH_SEPARATOR, $zf2ModulePaths).PATH_SEPARATOR;
 
         static::initAutoloader();
 
@@ -90,15 +89,15 @@ class Bootstrap
     {
         $vendorPath = static::findParentPath('vendor');
 
-        if (is_readable($vendorPath . '/autoload.php')) {
-            $loader = include $vendorPath . '/autoload.php';
+        if (is_readable($vendorPath.'/autoload.php')) {
+            $loader = include $vendorPath.'/autoload.php';
         }
 
         AutoloaderFactory::factory(array(
             'Zend\Loader\StandardAutoloader' => array(
                 'autoregister_zf' => true,
                 'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/' . __NAMESPACE__,
+                    __NAMESPACE__ => __DIR__.'/'.__NAMESPACE__,
                 ),
             ),
         ));
@@ -111,14 +110,15 @@ class Bootstrap
     {
         $dir = __DIR__;
         $previousDir = '.';
-        while (!is_dir($dir . '/' . $path)) {
+        while (!is_dir($dir.'/'.$path)) {
             $dir = dirname($dir);
             if ($previousDir === $dir) {
                 return false;
             }
             $previousDir = $dir;
         }
-        return $dir . '/' . $path;
+
+        return $dir.'/'.$path;
     }
 }
 
