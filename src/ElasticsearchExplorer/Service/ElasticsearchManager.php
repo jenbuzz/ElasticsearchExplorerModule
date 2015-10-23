@@ -85,7 +85,9 @@ class ElasticsearchManager
     {
         if ($this->isConnected) {
             $objIndexes = $this->client->indices();
-            $arrMappings = $objIndexes->getMapping(array('index' => $index));
+            $arrMappings = $objIndexes->getMapping(array(
+                'index' => $index,
+            ));
 
             $arrMappingTypes = array();
             if (isset($arrMappings[$index]['mappings']) && !empty($arrMappings[$index]['mappings'])) {

@@ -36,7 +36,7 @@ class ElasticsearchExplorerController extends AbstractActionController
         $searchterm = $this->params('searchterm');
 
         // Redirect to a pretty url after search submit.
-        if ($searchindex && $searchtype && !empty($queryParams['searchfield'])  && !empty($queryParams['searchterm'])) {
+        if ($searchindex && $searchtype && !empty($queryParams['searchfield']) && !empty($queryParams['searchterm'])) {
             $strSearchfield = "";
             foreach ($queryParams['searchfield'] as $field) {
                 $strSearchfield .= $field.',';
@@ -111,7 +111,7 @@ class ElasticsearchExplorerController extends AbstractActionController
 
         $arrPlugins = $objElasticsearchManager->getPlugins();
 
-        // Get the host of elasticsearch.
+        // Get the elasticsearch host to enable plugins linking.
         $host = '';
         $arrConfiguration = $objElasticsearchManager->getConfiguration();
         if (is_array($arrConfiguration) && isset($arrConfiguration['hosts']) && !empty($arrConfiguration['hosts'])) {
