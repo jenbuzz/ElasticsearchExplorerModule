@@ -43,6 +43,7 @@ class SearchForm extends Form
         $this->add($searchTerm);
 
         $submit = new Element\Submit('submit');
+        $submit->setAttribute('class', 'button');
         $submit->setValue('Start search!');
         $this->add($submit);
     }
