@@ -12,16 +12,18 @@ class SearchForm extends Form
         parent::__construct('album');
 
         $searchIndex = new Element\Select('searchindex');
-        $searchIndex->setLabel('Select index');
+        $searchIndex->setLabel('Select index:');
         $searchIndex->setValueOptions(array(
+            '-1' => '...',
             '0' => 'Test X',
             '1' => 'Test Y',
         ));
         $this->add($searchIndex);
        
         $searchType = new Element\Select('searchtype');
-        $searchType->setLabel('Select type');
+        $searchType->setLabel('Select type:');
         $searchType->setValueOptions(array(
+            '-1' => '...',
             '0' => 'Test X',
             '1' => 'Test Y',
         ));
@@ -29,7 +31,7 @@ class SearchForm extends Form
 
         $searchField = new Element\Select('searchfield[]');
         $searchField->setAttribute('multiple', true);
-        $searchField->setLabel('Select field');
+        $searchField->setLabel('Search in field:');
         $searchField->setValueOptions(array(
             '0' => 'Test X',
             '1' => 'Test Y',
@@ -37,7 +39,7 @@ class SearchForm extends Form
         $this->add($searchField);
 
         $searchTerm = new Element\Text('searchterm');
-        $searchTerm->setLabel('Search for');
+        $searchTerm->setLabel('Search for:');
         $this->add($searchTerm);
 
         $submit = new Element\Submit('submit');
