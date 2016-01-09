@@ -15,8 +15,6 @@ class SearchForm extends Form
         $searchIndex->setLabel('Select index:');
         $searchIndex->setValueOptions(array(
             '-1' => '...',
-            '0' => 'Test X',
-            '1' => 'Test Y',
         ));
         $this->add($searchIndex);
        
@@ -47,5 +45,17 @@ class SearchForm extends Form
         $submit->setAttribute('class', 'button');
         $submit->setValue('Start search!');
         $this->add($submit);
+    }
+
+    public function updateSearchIndexOptions ($indexes)
+    {
+        $searchIndex = $this->get('searchindex');
+
+        $arrIndexes = $searchIndex->getValueOptions();
+        foreach ($indexes AS $index) {
+            $arrIndexes[$index['name']] = $index['name'];
+        }
+
+        $searchIndex->setValueOptions($arrIndexes);
     }
 }
