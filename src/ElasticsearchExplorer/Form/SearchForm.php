@@ -22,8 +22,6 @@ class SearchForm extends Form
         $searchType->setLabel('Select type:');
         $searchType->setValueOptions(array(
             '-1' => '...',
-            '0' => 'Test X',
-            '1' => 'Test Y',
         ));
         $this->add($searchType); 
 
@@ -57,5 +55,17 @@ class SearchForm extends Form
         }
 
         $searchIndex->setValueOptions($arrIndexes);
+    }
+
+    public function updateSearchTypeOptions ($types)
+    {
+        $searchType = $this->get('searchtype');
+
+        $arrTypes = $searchType->getValueOptions();
+        foreach ($types AS $type) {
+            $arrTypes[$type['name']] = $type['name'];
+        }
+
+        $searchType->setValueOptions($arrTypes);
     }
 }
