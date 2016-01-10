@@ -12,6 +12,7 @@ class SearchForm extends Form
         parent::__construct('album');
 
         $searchIndex = new Element\Select('searchindex');
+        $searchIndex->setAttribute('id', 'search-select-index');
         $searchIndex->setLabel('Select index:');
         $searchIndex->setValueOptions(array(
             '-1' => '...',
@@ -19,6 +20,7 @@ class SearchForm extends Form
         $this->add($searchIndex);
        
         $searchType = new Element\Select('searchtype');
+        $searchType->setAttribute('id', 'search-select-type');
         $searchType->setLabel('Select type:');
         $searchType->setValueOptions(array(
             '-1' => '...',
