@@ -1,3 +1,66 @@
+<?php echo $this->form()->openTag($form); ?>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <?php $form->updateSearchIndexOptions($this->indexes, $this->searchindex); ?>
+            <?php echo $this->formRow($form->get('searchindex')); ?>
+        </div>
+    </div>
+
+    <div class="row<?php if (!$this->searchindex) { echo ' invisible'; } ?>">
+        <div class="large-12 columns">
+            <?php $form->updateSearchTypeOptions($this->types, $this->searchtype); ?>
+            <?php echo $this->formRow($form->get('searchtype')); ?>
+        </div>
+    </div>
+
+    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+        <div class="large-12 columns">
+            <?php $form->updateSearchFieldOptions($this->fields, $this->searchfield); ?>
+            <?php echo $this->formRow($form->get('searchfield[]')); ?>
+
+            <div id="modalFields" class="reveal-modal" data-reveal>
+                <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><?php echo $this->translate('Name', __NAMESPACE__); ?></th>
+                            <th><?php echo $this->translate('Type', __NAMESPACE__); ?></th>
+                            <th><?php echo $this->translate('Index', __NAMESPACE__); ?></th>
+                        </tr>
+                    </thead>
+                    <?php foreach ($this->fields AS $field): ?>
+                    <tr><td><?php echo $field['name']; ?></td><td><?php echo $field['type']; ?></td><td><?php echo $field['index']; ?></td></tr>
+                    <?php endforeach; ?>
+                </table>
+                <a class="close-reveal-modal">&#215;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+        <div class="large-12 columns">
+            <?php echo $this->formRow($form->get('searchterm')); ?>
+        </div>
+    </div>
+
+    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+        <div class="large-12 columns">
+            <?php echo $this->formSubmit($form->get('submit')); ?>
+        </div>
+    </div>
+
+<?php echo $this->form()->closeTag(); ?>
+
+<?php
+ //echo $this->formHidden($form->get('searchindex'));
+ //echo $this->formRow($form->get('searchtype'));
+ //echo $this->formRow($form->get('searchfield[]'));
+ //echo $this->formRow($form->get('searchterm'));
+ //echo $this->formSubmit($form->get('submit'));
+ //echo $this->form()->closeTag();
+?>
+
 <?php if ($this->indexes): ?>
 <form>
     <div class="row">

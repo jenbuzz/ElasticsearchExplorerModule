@@ -5,6 +5,8 @@ namespace ElasticsearchExplorer\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
+use ElasticsearchExplorer\Form\SearchForm;
+
 class ElasticsearchExplorerController extends AbstractActionController
 {
     /**
@@ -85,6 +87,7 @@ class ElasticsearchExplorerController extends AbstractActionController
             'fields' => $arrFields,
             'types' => $arrTypes,
             'results' => $arrResults,
+            'form' => new SearchForm(),
         ));
     }
 

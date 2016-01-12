@@ -43,7 +43,7 @@ class SearchForm extends Form
         $this->add($submit);
     }
 
-    public function updateSearchIndexOptions ($indexes)
+    public function updateSearchIndexOptions ($indexes, $selected)
     {
         $searchIndex = $this->get('searchindex');
 
@@ -53,9 +53,11 @@ class SearchForm extends Form
         }
 
         $searchIndex->setValueOptions($arrIndexes);
+
+        $searchIndex->setValue($selected);
     }
 
-    public function updateSearchTypeOptions ($types)
+    public function updateSearchTypeOptions ($types, $selected)
     {
         $searchType = $this->get('searchtype');
 
@@ -65,9 +67,11 @@ class SearchForm extends Form
         }
 
         $searchType->setValueOptions($arrTypes);
+
+        $searchType->setValue($selected);
     }
 
-    public function updateSearchFieldOptions ($fields)
+    public function updateSearchFieldOptions ($fields, $selected)
     {
         $searchField = $this->get('searchfield[]');
 
@@ -77,5 +81,7 @@ class SearchForm extends Form
         }
 
         $searchField->setValueOptions($arrFields);
+
+        $searchField->setValue($selected);
     }
 }
