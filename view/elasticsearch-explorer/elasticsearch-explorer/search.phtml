@@ -40,7 +40,9 @@
 
     <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
         <div class="large-12 columns">
-            <?php echo $this->formRow($form->get('searchterm')); ?>
+            <?php $searchterm = $form->get('searchterm'); ?>
+            <?php $searchterm->setValue($this->searchterm) ?>
+            <?php echo $this->formRow($searchterm); ?>
         </div>
     </div>
 
