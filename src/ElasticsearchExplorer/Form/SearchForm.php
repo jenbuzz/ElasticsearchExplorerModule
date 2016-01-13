@@ -11,6 +11,8 @@ class SearchForm extends Form
     {
         parent::__construct('album');
 
+        $this->setAttribute('method', 'GET');
+
         $searchIndex = new Element\Select('searchindex');
         $searchIndex->setAttribute('id', 'search-select-index');
         $searchIndex->setLabel('Select index:');
