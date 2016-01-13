@@ -17,7 +17,7 @@
     <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
         <div class="large-12 columns">
             <?php $form->updateSearchFieldOptions($this->fields, $this->searchfield); ?>
-            <?php echo $this->formRow($form->get('searchfield[]')); ?>
+            <?php echo $this->formRow($form->get('searchfield')); ?>
 
             <div id="modalFields" class="reveal-modal" data-reveal>
                 <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>

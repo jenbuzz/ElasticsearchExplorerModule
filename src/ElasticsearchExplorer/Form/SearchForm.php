@@ -27,7 +27,7 @@ class SearchForm extends Form
         ));
         $this->add($searchType); 
 
-        $searchField = new Element\Select('searchfield[]');
+        $searchField = new Element\Select('searchfield');
         $searchField->setAttribute('multiple', true);
         $searchField->setLabel('Search in field: <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>');
         $searchField->setLabelOptions(array('disable_html_escape' => true));
@@ -73,7 +73,7 @@ class SearchForm extends Form
 
     public function updateSearchFieldOptions ($fields, $selected)
     {
-        $searchField = $this->get('searchfield[]');
+        $searchField = $this->get('searchfield');
 
         $arrFields = $searchField->getValueOptions();
         foreach ($fields AS $field) {
