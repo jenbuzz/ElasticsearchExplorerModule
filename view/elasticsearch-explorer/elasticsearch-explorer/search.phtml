@@ -1,8 +1,10 @@
+<?php $this->formRow()->setTranslatorTextDomain(__NAMESPACE__); ?>
+
 <?php echo $this->form()->openTag($form); ?>
 
     <div class="row">
         <div class="large-12 columns">
-            <?php $form->updateSearchIndexOptions($this->indexes, $this->searchindex); ?>
+            <?php $form->updateSearchIndexOptions($this->indexes, $this->searchindex);  ?>
             <?php echo $this->formRow($form->get('searchindex')); ?>
         </div>
     </div>
@@ -48,7 +50,7 @@
 
     <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
         <div class="large-12 columns">
-            <?php echo $this->formSubmit($form->get('submit')); ?>
+            <?php echo $this->formButton()->render($form->get('submit'), $this->translate('Start search', __NAMESPACE__)); ?>
         </div>
     </div>
 

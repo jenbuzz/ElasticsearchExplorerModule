@@ -15,7 +15,7 @@ class SearchForm extends Form
 
         $searchIndex = new Element\Select('searchindex');
         $searchIndex->setAttribute('id', 'search-select-index');
-        $searchIndex->setLabel('Select index:');
+        $searchIndex->setLabel('Select index');
         $searchIndex->setValueOptions(array(
             '-1' => '...',
         ));
@@ -23,7 +23,7 @@ class SearchForm extends Form
        
         $searchType = new Element\Select('searchtype');
         $searchType->setAttribute('id', 'search-select-type');
-        $searchType->setLabel('Select type:');
+        $searchType->setLabel('Select type');
         $searchType->setValueOptions(array(
             '-1' => '...',
         ));
@@ -31,17 +31,18 @@ class SearchForm extends Form
 
         $searchField = new Element\Select('searchfield');
         $searchField->setAttribute('multiple', true);
-        $searchField->setLabel('Search in field: <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>');
+        $searchField->setLabel('Search in field');
+        // <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
         $searchField->setLabelOptions(array('disable_html_escape' => true));
         $this->add($searchField);
 
         $searchTerm = new Element\Text('searchterm');
-        $searchTerm->setLabel('Search for:');
+        $searchTerm->setLabel('Search for');
         $this->add($searchTerm);
 
         $submit = new Element\Submit('submit');
         $submit->setAttribute('class', 'button');
-        $submit->setValue('Start search!');
+        $submit->setLabel('Start search');
         $this->add($submit);
     }
 
