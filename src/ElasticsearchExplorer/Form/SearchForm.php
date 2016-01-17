@@ -31,12 +31,13 @@ class SearchForm extends Form
 
         $searchField = new Element\Select('searchfield');
         $searchField->setAttribute('multiple', true);
+        $searchField->setAttribute('required', true);
         $searchField->setLabel('Search in field');
-        // <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
         $searchField->setLabelOptions(array('disable_html_escape' => true));
         $this->add($searchField);
 
         $searchTerm = new Element\Text('searchterm');
+        $searchTerm->setAttribute('required', true);
         $searchTerm->setLabel('Search for');
         $this->add($searchTerm);
 
