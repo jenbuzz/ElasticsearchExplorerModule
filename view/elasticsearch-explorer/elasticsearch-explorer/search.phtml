@@ -6,26 +6,35 @@
 
         <div class="row">
             <div class="large-12 columns">
-                <?php $form->updateValueOptions($form->get('searchindex'), $this->indexes, $this->searchindex);  ?>
-                <?php echo $this->formRow($form->get('searchindex')); ?>
+                <?php 
+                    $searchIndexElement = $form->get('searchindex');
+                    $form->updateValueOptions($searchIndexElement, $this->indexes, $this->searchindex);
+                    echo $this->formRow($searchIndexElement);
+                ?>
             </div>
         </div>
 
         <div class="row<?php if (!$this->searchindex) { echo ' invisible'; } ?>">
             <div class="large-12 columns">
-                <?php $form->updateValueOptions($form->get('searchtype'), $this->types, $this->searchtype); ?>
-                <?php echo $this->formRow($form->get('searchtype')); ?>
+                <?php 
+                    $searchTypeElement = $form->get('searchtype');
+                    $form->updateValueOptions($searchTypeElement, $this->types, $this->searchtype);
+                    echo $this->formRow($searchTypeElement);
+                ?>
             </div>
         </div>
 
         <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
             <div class="large-12 columns">
-                <?php $form->updateValueOptions($form->get('searchfield'), $this->fields, $this->searchfield); ?>
-                <?php echo $this->formLabel()->openTag($form->get('searchfield')); ?>
-                <?php echo $this->translate($form->get('searchfield')->getLabel(), __NAMESPACE__); ?>
-                <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
-                <?php echo $this->formSelect($form->get('searchfield')); ?>
-                <?php echo $this->formLabel()->closeTag(); ?>
+                <?php 
+                    $searchFieldElement = $form->get('searchfield');
+                    $form->updateValueOptions($searchFieldElement, $this->fields, $this->searchfield);
+                    echo $this->formLabel()->openTag($searchFieldElement);
+                    echo $this->translate($searchFieldElement->getLabel(), __NAMESPACE__);
+                    echo '<a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>';
+                    echo $this->formSelect($searchFieldElement);
+                    echo $this->formLabel()->closeTag();
+                ?>
 
                 <div id="modalFields" class="reveal-modal" data-reveal>
                     <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>
@@ -48,9 +57,11 @@
 
         <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
             <div class="large-12 columns">
-                <?php $searchterm = $form->get('searchterm'); ?>
-                <?php $searchterm->setValue($this->searchterm) ?>
-                <?php echo $this->formRow($searchterm); ?>
+                <?php 
+                    $searchTermElement = $form->get('searchterm');
+                    $searchTermElement->setValue($this->searchterm);
+                    echo $this->formRow($searchTermElement);
+                ?>
             </div>
         </div>
 
