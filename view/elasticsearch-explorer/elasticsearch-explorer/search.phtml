@@ -1,5 +1,7 @@
 <?php $this->formRow()->setTranslatorTextDomain(__NAMESPACE__); ?>
 
+<?php if ($this->indexes): ?>
+
 <?php echo $this->form()->openTag($form); ?>
 
     <div class="row">
@@ -60,86 +62,6 @@
 
 <?php echo $this->form()->closeTag(); ?>
 
-<?php
- //echo $this->formHidden($form->get('searchindex'));
- //echo $this->formRow($form->get('searchtype'));
- //echo $this->formRow($form->get('searchfield[]'));
- //echo $this->formRow($form->get('searchterm'));
- //echo $this->formSubmit($form->get('submit'));
- //echo $this->form()->closeTag();
-?>
-
-<?php if ($this->indexes): ?>
-<form>
-    <div class="row">
-        <div class="large-12 columns">
-            <label><?php echo $this->translate('Select index', __NAMESPACE__); ?>:
-                <select id="search-select-index">
-                    <option value="-1">...</option>
-                <?php foreach ($this->indexes AS $index): ?>
-                    <option value="<?php echo $index['name']; ?>"<?php if ($this->searchindex==$index['name']) { echo ' selected'; } ?>><?php echo $index['name']; ?></option>
-                <?php endforeach; ?>
-                </select>
-            </label>
-        </div>
-    </div>
-
-    <div class="row<?php if (!$this->searchindex) { echo ' invisible'; } ?>">
-        <div class="large-12 columns">
-            <label><?php echo $this->translate('Select type', __NAMESPACE__); ?>:
-                <select id="search-select-type">
-                    <option value="-1">...</option>
-                <?php foreach ($this->types AS $type): ?>
-                    <option value="<?php echo $type['name']; ?>"<?php if ($this->searchtype==$type['name']) { echo ' selected'; } ?>><?php echo $type['name']; ?></option>
-                <?php endforeach; ?>
-                </select>
-            </label>
-        </div>
-    </div>
-
-    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
-        <div class="large-12 columns">
-            <label><?php echo $this->translate('Search in field', __NAMESPACE__); ?>: <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
-                <select class="searchfield" name="searchfield[]" multiple="multiple" required>
-                    <?php foreach ($this->fields AS $field): ?>
-                    <option value="<?php echo $field['name']; ?>"<?php if (in_array($field['name'], $this->searchfield)) { echo ' selected'; } ?>><?php echo $field['name']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
-
-            <div id="modalFields" class="reveal-modal" data-reveal>
-                <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>
-                <table>
-                    <thead>
-                        <tr>
-                            <th><?php echo $this->translate('Name', __NAMESPACE__); ?></th>
-                            <th><?php echo $this->translate('Type', __NAMESPACE__); ?></th>
-                            <th><?php echo $this->translate('Index', __NAMESPACE__); ?></th>
-                        </tr>
-                    </thead>
-                    <?php foreach ($this->fields AS $field): ?>
-                    <tr><td><?php echo $field['name']; ?></td><td><?php echo $field['type']; ?></td><td><?php echo $field['index']; ?></td></tr>
-                    <?php endforeach; ?>
-                </table>
-                <a class="close-reveal-modal">&#215;</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
-        <div class="large-12 columns">
-            <label><?php echo $this->translate('Search for', __NAMESPACE__); ?>:
-                <input name="searchterm" type="text" value="<?php if ($this->searchterm!='') { echo $this->searchterm; } ?>" required />
-            </label>
-        </div>
-    </div>
-
-    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
-        <div class="large-12 columns">
-            <input class="button" type="submit" value="<?php echo $this->translate('Start search', __NAMESPACE__); ?>!" />
-        </div>
-    </div>
-</form>
 <?php endif; ?>
 
 <?php if ($this->results && count($this->results)): ?>
