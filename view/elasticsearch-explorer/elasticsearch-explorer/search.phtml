@@ -19,7 +19,11 @@
     <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
         <div class="large-12 columns">
             <?php $form->updateSearchFieldOptions($this->fields, $this->searchfield); ?>
-            <?php echo $this->formRow($form->get('searchfield')); ?>
+            <?php echo $this->formLabel()->openTag($form->get('searchfield')); ?>
+            <?php echo $this->translate($form->get('searchfield')->getLabel(), __NAMESPACE__); ?>
+            <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
+            <?php echo $this->formSelect($form->get('searchfield')); ?>
+            <?php echo $this->formLabel()->closeTag(); ?>
 
             <div id="modalFields" class="reveal-modal" data-reveal>
                 <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>
