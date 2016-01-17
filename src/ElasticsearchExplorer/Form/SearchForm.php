@@ -53,6 +53,8 @@ class SearchForm extends Form
      * @param $element
      * @param $options
      * @param $selected
+     *
+     * @return $element
      */
     public function updateValueOptions ($element, $options, $selected)
     {
@@ -64,5 +66,7 @@ class SearchForm extends Form
         $element->setValueOptions($arrOptions);
 
         $element->setValue($selected);
+
+        return $element;
     }
 }
