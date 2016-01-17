@@ -2,65 +2,65 @@
 
 <?php if ($this->indexes): ?>
 
-<?php echo $this->form()->openTag($form); ?>
+    <?php echo $this->form()->openTag($form); ?>
 
-    <div class="row">
-        <div class="large-12 columns">
-            <?php $form->updateSearchIndexOptions($this->indexes, $this->searchindex);  ?>
-            <?php echo $this->formRow($form->get('searchindex')); ?>
-        </div>
-    </div>
-
-    <div class="row<?php if (!$this->searchindex) { echo ' invisible'; } ?>">
-        <div class="large-12 columns">
-            <?php $form->updateSearchTypeOptions($this->types, $this->searchtype); ?>
-            <?php echo $this->formRow($form->get('searchtype')); ?>
-        </div>
-    </div>
-
-    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
-        <div class="large-12 columns">
-            <?php $form->updateSearchFieldOptions($this->fields, $this->searchfield); ?>
-            <?php echo $this->formLabel()->openTag($form->get('searchfield')); ?>
-            <?php echo $this->translate($form->get('searchfield')->getLabel(), __NAMESPACE__); ?>
-            <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
-            <?php echo $this->formSelect($form->get('searchfield')); ?>
-            <?php echo $this->formLabel()->closeTag(); ?>
-
-            <div id="modalFields" class="reveal-modal" data-reveal>
-                <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>
-                <table>
-                    <thead>
-                        <tr>
-                            <th><?php echo $this->translate('Name', __NAMESPACE__); ?></th>
-                            <th><?php echo $this->translate('Type', __NAMESPACE__); ?></th>
-                            <th><?php echo $this->translate('Index', __NAMESPACE__); ?></th>
-                        </tr>
-                    </thead>
-                    <?php foreach ($this->fields AS $field): ?>
-                    <tr><td><?php echo $field['name']; ?></td><td><?php echo $field['type']; ?></td><td><?php echo $field['index']; ?></td></tr>
-                    <?php endforeach; ?>
-                </table>
-                <a class="close-reveal-modal">&#215;</a>
+        <div class="row">
+            <div class="large-12 columns">
+                <?php $form->updateSearchIndexOptions($this->indexes, $this->searchindex);  ?>
+                <?php echo $this->formRow($form->get('searchindex')); ?>
             </div>
         </div>
-    </div>
 
-    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
-        <div class="large-12 columns">
-            <?php $searchterm = $form->get('searchterm'); ?>
-            <?php $searchterm->setValue($this->searchterm) ?>
-            <?php echo $this->formRow($searchterm); ?>
+        <div class="row<?php if (!$this->searchindex) { echo ' invisible'; } ?>">
+            <div class="large-12 columns">
+                <?php $form->updateSearchTypeOptions($this->types, $this->searchtype); ?>
+                <?php echo $this->formRow($form->get('searchtype')); ?>
+            </div>
         </div>
-    </div>
 
-    <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
-        <div class="large-12 columns">
-            <?php echo $this->formButton()->render($form->get('submit'), $this->translate('Start search', __NAMESPACE__)); ?>
+        <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+            <div class="large-12 columns">
+                <?php $form->updateSearchFieldOptions($this->fields, $this->searchfield); ?>
+                <?php echo $this->formLabel()->openTag($form->get('searchfield')); ?>
+                <?php echo $this->translate($form->get('searchfield')->getLabel(), __NAMESPACE__); ?>
+                <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
+                <?php echo $this->formSelect($form->get('searchfield')); ?>
+                <?php echo $this->formLabel()->closeTag(); ?>
+
+                <div id="modalFields" class="reveal-modal" data-reveal>
+                    <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><?php echo $this->translate('Name', __NAMESPACE__); ?></th>
+                                <th><?php echo $this->translate('Type', __NAMESPACE__); ?></th>
+                                <th><?php echo $this->translate('Index', __NAMESPACE__); ?></th>
+                            </tr>
+                        </thead>
+                        <?php foreach ($this->fields AS $field): ?>
+                        <tr><td><?php echo $field['name']; ?></td><td><?php echo $field['type']; ?></td><td><?php echo $field['index']; ?></td></tr>
+                        <?php endforeach; ?>
+                    </table>
+                    <a class="close-reveal-modal">&#215;</a>
+                </div>
+            </div>
         </div>
-    </div>
 
-<?php echo $this->form()->closeTag(); ?>
+        <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+            <div class="large-12 columns">
+                <?php $searchterm = $form->get('searchterm'); ?>
+                <?php $searchterm->setValue($this->searchterm) ?>
+                <?php echo $this->formRow($searchterm); ?>
+            </div>
+        </div>
+
+        <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+            <div class="large-12 columns">
+                <?php echo $this->formButton()->render($form->get('submit'), $this->translate('Start search', __NAMESPACE__)); ?>
+            </div>
+        </div>
+
+    <?php echo $this->form()->closeTag(); ?>
 
 <?php endif; ?>
 
