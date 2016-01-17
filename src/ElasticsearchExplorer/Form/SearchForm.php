@@ -47,6 +47,13 @@ class SearchForm extends Form
         $this->add($submit);
     }
 
+    /**
+     * Update the options set in the select inputfields.
+     *
+     * @param $element
+     * @param $options
+     * @param $selected
+     */
     public function updateValueOptions ($element, $options, $selected)
     {
         $arrOptions = $element->getValueOptions();
