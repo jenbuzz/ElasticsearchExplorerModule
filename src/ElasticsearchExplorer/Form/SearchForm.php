@@ -7,7 +7,7 @@ use Zend\Form\Element;
 
 class SearchForm extends Form 
 {
-    public function __construct($name = null)
+    public function __construct()
     {
         parent::__construct('album');
 
