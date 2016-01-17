@@ -6,21 +6,21 @@
 
         <div class="row">
             <div class="large-12 columns">
-                <?php $form->updateSearchIndexOptions($this->indexes, $this->searchindex);  ?>
+                <?php $form->updateValueOptions($form->get('searchindex'), $this->indexes, $this->searchindex);  ?>
                 <?php echo $this->formRow($form->get('searchindex')); ?>
             </div>
         </div>
 
         <div class="row<?php if (!$this->searchindex) { echo ' invisible'; } ?>">
             <div class="large-12 columns">
-                <?php $form->updateSearchTypeOptions($this->types, $this->searchtype); ?>
+                <?php $form->updateValueOptions($form->get('searchtype'), $this->types, $this->searchtype); ?>
                 <?php echo $this->formRow($form->get('searchtype')); ?>
             </div>
         </div>
 
         <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
             <div class="large-12 columns">
-                <?php $form->updateSearchFieldOptions($this->fields, $this->searchfield); ?>
+                <?php $form->updateValueOptions($form->get('searchfield'), $this->fields, $this->searchfield); ?>
                 <?php echo $this->formLabel()->openTag($form->get('searchfield')); ?>
                 <?php echo $this->translate($form->get('searchfield')->getLabel(), __NAMESPACE__); ?>
                 <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>

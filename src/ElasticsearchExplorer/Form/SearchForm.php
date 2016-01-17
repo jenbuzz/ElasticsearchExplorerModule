@@ -47,45 +47,15 @@ class SearchForm extends Form
         $this->add($submit);
     }
 
-    public function updateSearchIndexOptions ($indexes, $selected)
+    public function updateValueOptions ($element, $options, $selected)
     {
-        $searchIndex = $this->get('searchindex');
-
-        $arrIndexes = $searchIndex->getValueOptions();
-        foreach ($indexes AS $index) {
-            $arrIndexes[$index['name']] = $index['name'];
+        $arrOptions = $element->getValueOptions();
+        foreach ($options AS $option) {
+            $arrOptions[$option['name']] = $option['name'];
         }
 
-        $searchIndex->setValueOptions($arrIndexes);
+        $element->setValueOptions($arrOptions);
 
-        $searchIndex->setValue($selected);
-    }
-
-    public function updateSearchTypeOptions ($types, $selected)
-    {
-        $searchType = $this->get('searchtype');
-
-        $arrTypes = $searchType->getValueOptions();
-        foreach ($types AS $type) {
-            $arrTypes[$type['name']] = $type['name'];
-        }
-
-        $searchType->setValueOptions($arrTypes);
-
-        $searchType->setValue($selected);
-    }
-
-    public function updateSearchFieldOptions ($fields, $selected)
-    {
-        $searchField = $this->get('searchfield');
-
-        $arrFields = $searchField->getValueOptions();
-        foreach ($fields AS $field) {
-            $arrFields[$field['name']] = $field['name'];
-        }
-
-        $searchField->setValueOptions($arrFields);
-
-        $searchField->setValue($selected);
+        $element->setValue($selected);
     }
 }
