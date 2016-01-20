@@ -58,14 +58,16 @@ class SearchForm extends Form
      */
     public function updateValueOptions ($element, $options, $selected)
     {
-        $arrOptions = $element->getValueOptions();
-        foreach ($options AS $option) {
-            $arrOptions[$option['name']] = $option['name'];
+        if ($element instanceof \Zend\Form\Element\Select) {
+            $arrOptions = $element->getValueOptions();
+            foreach ($options AS $option) {
+                $arrOptions[$option['name']] = $option['name'];
+            }
+
+            $element->setValueOptions($arrOptions);
+
+            $element->setValue($selected);
         }
-
-        $element->setValueOptions($arrOptions);
-
-        $element->setValue($selected);
 
         return $element;
     }
