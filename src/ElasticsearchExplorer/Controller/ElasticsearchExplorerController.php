@@ -78,6 +78,9 @@ class ElasticsearchExplorerController extends AbstractActionController
             $searchfield = $objElasticsearchManager->convertSearchfieldsToArray($searchfield);
         }
 
+        // Search form.
+        $form = new SearchForm();
+
         return new ViewModel(array(
             'searchindex' => $searchindex,
             'searchtype' => $searchtype,
@@ -87,7 +90,7 @@ class ElasticsearchExplorerController extends AbstractActionController
             'fields' => $arrFields,
             'types' => $arrTypes,
             'results' => $arrResults,
-            'form' => new SearchForm(),
+            'form' => $form,
         ));
     }
 

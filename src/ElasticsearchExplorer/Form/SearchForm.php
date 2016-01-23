@@ -56,7 +56,7 @@ class SearchForm extends Form
      *
      * @return $element
      */
-    public function updateValueOptions ($element, $options, $selected)
+    public function updateValueOptions($element, $options, $selected)
     {
         if ($element instanceof \Zend\Form\Element\Select) {
             $arrOptions = $element->getValueOptions();

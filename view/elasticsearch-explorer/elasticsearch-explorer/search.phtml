@@ -1,7 +1,6 @@
 <?php $this->formRow()->setTranslatorTextDomain(__NAMESPACE__); ?>
 
 <?php if ($this->indexes): ?>
-
     <?php echo $this->form()->openTag($form); ?>
 
         <div class="row">
@@ -31,7 +30,7 @@
                     $form->updateValueOptions($searchFieldElement, $this->fields, $this->searchfield);
                     echo $this->formLabel()->openTag($searchFieldElement);
                     echo $this->translate($searchFieldElement->getLabel(), __NAMESPACE__);
-                    echo '<a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>';
+                    echo '&nbsp;<a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>';
                     echo $this->formSelect($searchFieldElement);
                     echo $this->formLabel()->closeTag();
                 ?>
@@ -47,7 +46,11 @@
                             </tr>
                         </thead>
                         <?php foreach ($this->fields AS $field): ?>
-                        <tr><td><?php echo $field['name']; ?></td><td><?php echo $field['type']; ?></td><td><?php echo $field['index']; ?></td></tr>
+                        <tr>
+                            <td><?php echo $field['name']; ?></td>
+                            <td><?php echo $field['type']; ?></td>
+                            <td><?php echo $field['index']; ?></td>
+                        </tr>
                         <?php endforeach; ?>
                     </table>
                     <a class="close-reveal-modal">&#215;</a>
@@ -72,7 +75,6 @@
         </div>
 
     <?php echo $this->form()->closeTag(); ?>
-
 <?php endif; ?>
 
 <?php if ($this->results && count($this->results)): ?>
