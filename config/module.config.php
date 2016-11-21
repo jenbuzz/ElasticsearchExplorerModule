@@ -1,5 +1,7 @@
 <?php
 
+namespace ElasticsearchExplorer;
+
 return array(
     'controllers' => array(
         'invokables' => array(
