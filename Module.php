@@ -16,8 +16,8 @@ class Module
             }
         }, 100);
 
-        $translator = $e->getApplication()->getServiceManager()->get('translator');
-        $translator->setLocale('en_US');
+        //$translator = $e->getApplication()->getServiceManager()->get('translator');
+        //$translator->setLocale('en_US');
     }
 
     public function getConfig()
