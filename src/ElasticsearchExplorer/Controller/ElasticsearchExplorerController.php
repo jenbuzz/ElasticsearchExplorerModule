@@ -35,8 +35,6 @@ class ElasticsearchExplorerController extends AbstractActionController
     {
         $queryParams = $this->getRequest()->getQuery();
 
-        $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
-
         $searchindex = $this->params('searchindex');
         $searchtype = $this->params('searchtype');
         $searchfield = $this->params('searchfield');
@@ -60,27 +58,27 @@ class ElasticsearchExplorerController extends AbstractActionController
         }
 
         // Get indexes.
-        $arrIndexes = $objElasticsearchManager->getIndexStats();
+        $arrIndexes = $this->objElasticsearchManager->getIndexStats();
 
         // Get types.
         $arrTypes = array();
         if ($searchindex) {
-            $arrTypes = $objElasticsearchManager->getIndexMappingTypes($searchindex);
+            $arrTypes = $this->objElasticsearchManager->getIndexMappingTypes($searchindex);
         }
 
         // Get fields.
         $arrFields = array();
         if ($searchindex && $searchtype) {
-            $arrFields = $objElasticsearchManager->getFieldsInIndexType($searchindex, $searchtype);
+            $arrFields = $this->objElasticsearchManager->getFieldsInIndexType($searchindex, $searchtype);
         }
 
         // Get results.
         $arrResults = array();
         if ($searchindex && $searchtype && $searchfield && $searchterm) {
-            $arrResults = $objElasticsearchManager->search($searchindex, $searchtype, $searchfield, $searchterm);
+            $arrResults = $this->objElasticsearchManager->search($searchindex, $searchtype, $searchfield, $searchterm);
 
             // Create array of searchfields.
-            $searchfield = $objElasticsearchManager->convertSearchfieldsToArray($searchfield);
+            $searchfield = $this->objElasticsearchManager->convertSearchfieldsToArray($searchfield);
         }
 
         // Search form.
@@ -104,9 +102,7 @@ class ElasticsearchExplorerController extends AbstractActionController
      */
     public function configAction()
     {
-        $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
-
-        $arrConfiguration = $objElasticsearchManager->getConfiguration();
+        $arrConfiguration = $this->objElasticsearchManager->getConfiguration();
 
         return new ViewModel(array(
             'hosts' => $arrConfiguration['hosts'],
@@ -118,13 +114,11 @@ class ElasticsearchExplorerController extends AbstractActionController
      */
     public function pluginsAction()
     {
-        $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
-
-        $arrPlugins = $objElasticsearchManager->getPlugins();
+        $arrPlugins = $this->objElasticsearchManager->getPlugins();
 
         // Get the elasticsearch host to enable plugins linking.
         $host = '';
-        $arrConfiguration = $objElasticsearchManager->getConfiguration();
+        $arrConfiguration = $this->objElasticsearchManager->getConfiguration();
         if (is_array($arrConfiguration) && isset($arrConfiguration['hosts']) && !empty($arrConfiguration['hosts'])) {
             $host = $arrConfiguration['hosts'][0];
         }
