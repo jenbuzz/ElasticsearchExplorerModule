@@ -54,12 +54,13 @@ class ElasticsearchManager
      */
     public function getIndexStats()
     {
+        $arrIndexes = array();
+        
         if ($this->isConnected) {
             $objIndexes = $this->client->indices();
             $arrStats = $objIndexes->stats();
             $arrIndexesStats = $arrStats['indices'];
 
-            $arrIndexes = array();
             foreach ($arrIndexesStats as $indexKey => $indexValues) {
                 $arrIndexes[] = array(
                     'name' => $indexKey,
@@ -67,11 +68,9 @@ class ElasticsearchManager
                     'total_size' => $indexValues['total']['store']['size_in_bytes'],
                 );
             }
-
-            return $arrIndexes;
         }
         
-        return array();
+        return $arrIndexes;
     }
 
     /**
@@ -83,13 +82,14 @@ class ElasticsearchManager
      */
     public function getIndexMappingTypes($index)
     {
+        $arrMappingTypes = array();
+        
         if ($this->isConnected) {
             $objIndexes = $this->client->indices();
             $arrMappings = $objIndexes->getMapping(array(
                 'index' => $index,
             ));
 
-            $arrMappingTypes = array();
             if (isset($arrMappings[$index]['mappings']) && !empty($arrMappings[$index]['mappings'])) {
                 foreach ($arrMappings[$index]['mappings'] as $typeKey => $typeValue) {
                     $arrMappingTypes[] = array(
@@ -97,11 +97,9 @@ class ElasticsearchManager
                     );
                 }
             }
-
-            return $arrMappingTypes;
         }
         
-        return array();
+        return $arrMappingTypes;
     }
 
     /**
@@ -114,11 +112,12 @@ class ElasticsearchManager
      */
     public function getFieldsInIndexType($index, $type)
     {
+        $arrFields = array();
+        
         if ($this->isConnected) {
             $objIndexes = $this->client->indices();
             $arrMappings = $objIndexes->getMapping(array('index' => $index));
 
-            $arrFields = array();
             if (isset($arrMappings[$index]['mappings'][$type]['properties']) && !empty($arrMappings[$index]['mappings'][$type]['properties'])) {
                 foreach ($arrMappings[$index]['mappings'][$type]['properties'] as $typeKey => $typeValue) {
                     $arrFields[] = array(
@@ -128,11 +127,9 @@ class ElasticsearchManager
                     );
                 }
             }
-
-            return $arrFields;
         }
         
-        return array();
+        return $arrFields;
     }
 
     /**
