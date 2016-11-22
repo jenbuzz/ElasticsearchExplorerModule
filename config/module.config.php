@@ -4,8 +4,8 @@ namespace ElasticsearchExplorer;
 
 return array(
     'controllers' => array(
-        'invokables' => array(
-            'ElasticsearchExplorer\Controller\ElasticsearchExplorer' => 'ElasticsearchExplorer\Controller\ElasticsearchExplorerController',
+        'factories' => array(
+            'ElasticsearchExplorer\Controller\ElasticsearchExplorer' => 'ElasticsearchExplorer\Controller\Factory\ElasticsearchExplorerControllerFactory',
         ),
     ),
     'router' => array(

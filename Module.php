@@ -2,7 +2,10 @@
 
 namespace ElasticsearchExplorer;
 
-class Module
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\ServiceProviderInterface;
+
+class Module implements ConfigProviderInterface, ServiceProviderInterface
 {
     public function onBootstrap($e)
     {

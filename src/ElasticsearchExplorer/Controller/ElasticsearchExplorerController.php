@@ -4,19 +4,24 @@ namespace ElasticsearchExplorer\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-
+use ElasticsearchExplorer\Service\ElasticsearchManager;
 use ElasticsearchExplorer\Form\SearchForm;
 
 class ElasticsearchExplorerController extends AbstractActionController
 {
+    protected $objElasticsearchManager;
+    
+    public function __construct(ElasticsearchManager $objElasticsearchManager)
+    {
+        $this->objElasticsearchManager = $objElasticsearchManager;
+    }
+    
     /**
      * Home.
      */
     public function indexAction()
     {
-        $objElasticsearchManager = $this->getServiceLocator()->get('ElasticsearchManager');
-
-        $arrIndexes = $objElasticsearchManager->getIndexStats();
+        $arrIndexes = $this->objElasticsearchManager->getIndexStats();
 
         return new ViewModel(array(
             'indexes' => $arrIndexes,
