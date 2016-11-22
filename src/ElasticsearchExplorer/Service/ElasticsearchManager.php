@@ -69,9 +69,9 @@ class ElasticsearchManager
             }
 
             return $arrIndexes;
-        } else {
-            return array();
         }
+        
+        return array();
     }
 
     /**
@@ -99,9 +99,9 @@ class ElasticsearchManager
             }
 
             return $arrMappingTypes;
-        } else {
-            return array();
         }
+        
+        return array();
     }
 
     /**
@@ -130,9 +130,9 @@ class ElasticsearchManager
             }
 
             return $arrFields;
-        } else {
-            return array();
         }
+        
+        return array();
     }
 
     /**
@@ -172,15 +172,13 @@ class ElasticsearchManager
                 $results = $this->client->search($params);
                 if (isset($results['hits']) && isset($results['hits']['hits']) && !empty($results['hits']['hits'])) {
                     return $results['hits']['hits'];
-                } else {
-                    return array();
                 }
             } catch (\Elasticsearch\Common\Exceptions\BadRequest400Exception $e) {
                 return array();
             }
-        } else {
-            return array();
         }
+        
+        return array();
     }
 
     /**
@@ -195,9 +193,9 @@ class ElasticsearchManager
             $arrPlugins = $arrStatsCluster['nodes']['plugins'];
 
             return $arrPlugins;
-        } else {
-            return array();
         }
+        
+        return array();
     }
 
     /**
