@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <?php
+        echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/css/bootstrap.min.css');
+        echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/css/bootstrap-theme.min.css');
         echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/css/normalize.css');
         echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/css/foundation.min.css');
         echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/icons/foundation-icons.css');
@@ -70,6 +72,7 @@
         echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/vendor/placeholder.js');
         echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/vendor/fastclick.js');
         echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/foundation.min.js');
+        echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/bootstrap.min.js');
         echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/main.min.js');
         echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/search.min.js');
         ?>
