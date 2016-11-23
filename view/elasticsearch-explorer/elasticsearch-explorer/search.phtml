@@ -1,30 +1,32 @@
 <?php $this->formRow()->setTranslatorTextDomain(__NAMESPACE__); ?>
 
 <?php if ($this->indexes): ?>
+<div class="col-sm-4">
     <?php echo $this->form()->openTag($form); ?>
-
-        <div class="row">
-            <div class="large-12 columns">
+         
+    <table class="table table-borderless">
+        <tr class="row">
+            <td>
                 <?php 
                     $searchIndexElement = $form->get('searchindex');
                     $form->updateValueOptions($searchIndexElement, $this->indexes, $this->searchindex);
                     echo $this->formRow($searchIndexElement);
                 ?>
-            </div>
-        </div>
-
-        <div class="row<?php if (!$this->searchindex) { echo ' invisible'; } ?>">
-            <div class="large-12 columns">
+            </td>
+        </tr>
+        
+        <tr class="row<?php if (!$this->searchindex) { echo ' invisible'; } ?>">
+            <td>
                 <?php 
                     $searchTypeElement = $form->get('searchtype');
                     $form->updateValueOptions($searchTypeElement, $this->types, $this->searchtype);
                     echo $this->formRow($searchTypeElement);
                 ?>
-            </div>
-        </div>
+            </td>
+        </tr>
 
-        <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
-            <div class="large-12 columns">
+        <tr class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+            <td>
                 <?php 
                     $searchFieldElement = $form->get('searchfield');
                     $form->updateValueOptions($searchFieldElement, $this->fields, $this->searchfield);
@@ -55,37 +57,43 @@
                     </table>
                     <a class="close-reveal-modal">&#215;</a>
                 </div>
-            </div>
-        </div>
+            </td>
+        </tr>
 
-        <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
-            <div class="large-12 columns">
+        <tr class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+            <td class="large-12 columns">
                 <?php 
                     $searchTermElement = $form->get('searchterm');
                     $searchTermElement->setValue($this->searchterm);
                     echo $this->formRow($searchTermElement);
                 ?>
-            </div>
-        </div>
+            </td>
+        </tr>
 
-        <div class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
-            <div class="large-12 columns">
+        <tr class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+            <td class="large-12 columns">
                 <?php echo $this->formButton()->render($form->get('submit'), $this->translate('Start search', __NAMESPACE__)); ?>
-            </div>
-        </div>
-
+            </td>
+        </tr>
+    </table>
+        
     <?php echo $this->form()->closeTag(); ?>
+</div>
 <?php endif; ?>
 
 <?php if ($this->results && count($this->results)): ?>
     <?php foreach ($this->results AS $result): ?>
-    <div class="row search-row">
-        <div class="large-12 columns">
-            <table>
+    <div class="search-row">
+        <div class="col-sm-12 panel panel-info">
+            <table class="table table-hover">
             <?php foreach ($result['_source'] AS $resultSourceKey => $resultSource): ?>
                 <tr>
-                    <td><strong><?php echo $resultSourceKey; ?></strong></td>
-                    <td><?php echo $resultSource; ?></td>
+                    <td>
+                        <strong><?php echo $resultSourceKey; ?></strong>
+                    </td>
+                    <td>
+                        <span><?php echo $resultSource; ?></span>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </table>

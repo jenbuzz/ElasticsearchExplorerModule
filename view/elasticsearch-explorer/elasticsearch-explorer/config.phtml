@@ -1,15 +1,13 @@
 <?php if ($this->hosts): ?>
-<div class="row">
-    <div class="large-6 columns">
-        <h2><?php echo $this->translate('Configuration', __NAMESPACE__); ?></h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td><strong><?php echo $this->translate('Hosts', __NAMESPACE__); ?></strong></td>
-                    <td><?php foreach ($this->hosts AS $host) { echo $host; } ?></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="col-sm-6">
+    <h2><?php echo $this->translate('Configuration', __NAMESPACE__); ?></h2>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td><strong><?php echo $this->translate('Hosts', __NAMESPACE__); ?></strong></td>
+                <td><?php foreach ($this->hosts AS $host) { echo $host; } ?></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <?php endif; ?>
