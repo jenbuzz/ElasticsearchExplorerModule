@@ -1,21 +1,25 @@
 <?php foreach ($indexes AS $index): ?>
-<div class="row">
-    <div class="large-6 columns">
-        <h2>
-            <a href="<?php echo $this->url('elasticsearchexplorer/search/searchindex', array('searchindex' => $index['name'])); ?>">
-                <?php echo $index['name']; ?>
-            </a>
-        </h2>
-        <table>
-            <tr>
-                <td><strong><?php echo $this->translate('Total docs', __NAMESPACE__); ?></strong></td>
-                <td><?php echo $index['total_docs']; ?></td>
-            </tr>
-            <tr>
-                <td><strong><?php echo $this->translate('Total size', __NAMESPACE__); ?></strong></td>
-                <td><?php echo $index['total_size']; ?></td>
-            </tr>
-        </table>
+<div class="col-sm-4">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2 class="panel-title">
+                <a href="<?php echo $this->url('elasticsearchexplorer/search/searchindex', array('searchindex' => $index['name'])); ?>">
+                    <?php echo $index['name']; ?>
+                </a>
+            </h2>
+        </div>
+        <div class="panel-body">
+            <table>
+                <tr>
+                    <td><strong><?php echo $this->translate('Total docs', __NAMESPACE__); ?></strong></td>
+                    <td><?php echo $index['total_docs']; ?></td>
+                </tr>
+                <tr>
+                    <td><strong><?php echo $this->translate('Total size', __NAMESPACE__); ?></strong></td>
+                    <td><?php echo $index['total_size']; ?></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 <?php endforeach; ?>

@@ -10,22 +10,14 @@
         <?php
         echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/css/bootstrap.min.css');
         echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/css/bootstrap-theme.min.css');
-        echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/css/normalize.css');
-        echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/css/foundation.min.css');
-        echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/icons/foundation-icons.css');
         echo $this->headLink()->appendStylesheet($this->basePath().'/elasticsearch-explorer-public/css/main.css');
         ?>
     </head>
     <body>
-        <div class="contain-to-grid sticky">
-            <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-                <ul class="title-area">
-                    <li class="name"></li>
-                    <li class="toggle-topbar menu-icon"><a href="#"><span><?php echo $this->translate('Menu', __NAMESPACE__); ?></span></a></li>
-                </ul>
-
-                <section class="top-bar-section">
-                    <ul class="left">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
                         <li>
                             <a href="<?php echo $this->url('elasticsearchexplorer'); ?>">
                                 <span class="fi-home"></span>
@@ -57,21 +49,17 @@
                             </a>
                         </li>
                     </ul>
-                </section>
-            </nav>
-        </div>
+                </div>
+            </div>
+        </nav>
 
-        <div class="content">
+        <div class="container">
             <?php echo $this->content; ?>
         </div>
 
         <?php
         echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/vendor/jquery.js');
         echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/vendor/jquery.cookie.js');
-        echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/vendor/modernizr.js');
-        echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/vendor/placeholder.js');
-        echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/vendor/fastclick.js');
-        echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/foundation.min.js');
         echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/bootstrap.min.js');
         echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/main.min.js');
         echo $this->headScript()->appendFile($this->basePath().'/elasticsearch-explorer-public/js/search.min.js');
