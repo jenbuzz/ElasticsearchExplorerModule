@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     watch: {
       scripts: {
-        files: ['public/js/main.js', 'public/js/search.js', 'sass/main.scss'],
+        files: ['public/js/search.js', 'sass/main.scss'],
         tasks: ['compile'],
         options: {
           spawn: false
@@ -12,10 +12,6 @@ module.exports = function(grunt) {
       }
     },
     uglify: {
-      main: {
-        src: 'public/js/main.js',
-        dest: 'public/js/main.min.js'
-      },
       search: {
         src: 'public/js/search.js',
         dest: 'public/js/search.min.js'
