@@ -1,31 +1,30 @@
 body {
   padding-top: 70px;
 }
-
-.search-row {
+body .search-row {
   margin-bottom: 20px;
 }
-
-.search-row table {
+body .search-row table {
   width: 100%;
 }
-
-.searchfield {
+body .searchfield {
   height: 80px;
 }
-
-.top-bar-section ul li a {
-  font-size: 0.9rem;
+body .searchfield-info {
+  vertical-align: top;
 }
-
-.top-bar-section ul li a:hover {
-  background-color: #444 !important;
+body form .table input, body form .table select {
+  width: 100%;
 }
-
-.top-bar-section ul li a span {
-  margin-right: 5px;
+body .table.table-borderless td {
+  border: none !important;
 }
-
-.reveal-modal {
-  width: 325px;
+body .table.table-nomargin {
+  margin: 0 !important;
+}
+body .vertical-middle {
+  vertical-align: middle !important;
+}
+body .modal-dialog th {
+  width: 42%;
 }

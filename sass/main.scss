@@ -1,28 +1,47 @@
 body {
-  padding-top: 70px;
-}
+    padding-top: 70px;
 
-.search-row {
-  margin-bottom: 20px;
-}
-.search-row table {
-  width: 100%;
-}
+    .search-row {
+        margin-bottom: 20px;
 
-.searchfield {
-  height: 80px;
-}
+        table {
+            width: 100%;
+        }
+    }
 
-.top-bar-section ul li a {
-  font-size: 0.9rem;
-}
-.top-bar-section ul li a:hover {
-  background-color: #444 !important;
-}
-.top-bar-section ul li a span {
-  margin-right: 5px;
-}
+    .searchfield {
+        height: 80px;
+    }
 
-.reveal-modal {
-  width: 325px;
+    .searchfield-info {
+        vertical-align: top;
+    }
+
+    form .table {
+        input, select {
+            width: 100%;
+        }
+    }
+
+    .table {
+        &.table-borderless {
+            td {
+                border: none !important;
+            }
+        }
+
+        &.table-nomargin {
+            margin: 0 !important;
+        } 
+    }
+
+    .vertical-middle {
+        vertical-align: middle !important;
+    }
+
+    .modal-dialog {
+        th {
+            width: 42%;
+        }
+    }
 }
