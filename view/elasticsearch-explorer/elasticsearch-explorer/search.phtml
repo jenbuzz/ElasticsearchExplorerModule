@@ -48,32 +48,45 @@
                 <?php 
                     echo $this->formLabel()->openTag($searchFieldElement);
                     echo $this->translate($searchFieldElement->getLabel(), __NAMESPACE__);
-                    echo '&nbsp;<a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>';
                     echo $this->formLabel()->closeTag();
                 ?>
             </td>
             <td>
                 <?php echo $this->formSelect($searchFieldElement); ?>
+                
+                <a href="#" class="searchfield-info" data-toggle="modal" data-target="#infoModal">
+                    <span class="fa fa-info-circle"></span>
+                </a>
 
-                <div id="modalFields" class="reveal-modal" data-reveal>
-                    <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th><?php echo $this->translate('Name', __NAMESPACE__); ?></th>
-                                <th><?php echo $this->translate('Type', __NAMESPACE__); ?></th>
-                                <th><?php echo $this->translate('Index', __NAMESPACE__); ?></th>
-                            </tr>
-                        </thead>
-                        <?php foreach ($this->fields AS $field): ?>
-                        <tr>
-                            <td><?php echo $field['name']; ?></td>
-                            <td><?php echo $field['type']; ?></td>
-                            <td><?php echo $field['index']; ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
-                    <a class="close-reveal-modal">&#215;</a>
+                <div id="infoModal" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>
+                            </div>
+                            <div class="modal-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th><?php echo $this->translate('Name', __NAMESPACE__); ?></th>
+                                            <th><?php echo $this->translate('Type', __NAMESPACE__); ?></th>
+                                            <th><?php echo $this->translate('Index', __NAMESPACE__); ?></th>
+                                        </tr>
+                                    </thead>
+                                    <?php foreach ($this->fields AS $field): ?>
+                                    <tr>
+                                        <td><?php echo $field['name']; ?></td>
+                                        <td><?php echo $field['type']; ?></td>
+                                        <td><?php echo $field['index']; ?></td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </td>
         </tr>
