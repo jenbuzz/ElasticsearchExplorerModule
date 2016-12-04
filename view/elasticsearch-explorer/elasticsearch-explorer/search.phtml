@@ -5,37 +5,55 @@
     <?php echo $this->form()->openTag($form); ?>
          
     <table class="table table-borderless">
-        <tr class="row">
+        <tr>
+            <?php 
+                $searchIndexElement = $form->get('searchindex');
+                $form->updateValueOptions($searchIndexElement, $this->indexes, $this->searchindex);
+            ?>
             <td>
                 <?php 
-                    $searchIndexElement = $form->get('searchindex');
-                    $form->updateValueOptions($searchIndexElement, $this->indexes, $this->searchindex);
-                    echo $this->formRow($searchIndexElement);
+                    echo $this->formLabel()->openTag($searchIndexElement);
+                    echo $searchIndexElement->getLabel();
+                    echo $this->formLabel()->closeTag();
                 ?>
+            </td>
+            <td>
+                <?php echo $this->formSelect($searchIndexElement); ?>
             </td>
         </tr>
         
-        <tr class="row<?php if (!$this->searchindex) { echo ' invisible'; } ?>">
+        <tr class="<?php if (!$this->searchindex) { echo 'invisible'; } ?>">
+            <?php 
+                $searchTypeElement = $form->get('searchtype');
+                $form->updateValueOptions($searchTypeElement, $this->types, $this->searchtype);
+            ?>
             <td>
                 <?php 
-                    $searchTypeElement = $form->get('searchtype');
-                    $form->updateValueOptions($searchTypeElement, $this->types, $this->searchtype);
-                    echo $this->formRow($searchTypeElement);
+                    echo $this->formLabel()->openTag($searchTypeElement);
+                    echo $searchTypeElement->getLabel(); 
+                    echo $this->formLabel()->closeTag();
                 ?>
+            </td>
+            <td>
+                <?php echo $this->formSelect($searchTypeElement); ?>
             </td>
         </tr>
 
-        <tr class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+        <tr class="<?php if (!$this->searchtype) { echo 'invisible'; } ?>">
+            <?php 
+                $searchFieldElement = $form->get('searchfield');
+                $form->updateValueOptions($searchFieldElement, $this->fields, $this->searchfield);
+            ?>
             <td>
                 <?php 
-                    $searchFieldElement = $form->get('searchfield');
-                    $form->updateValueOptions($searchFieldElement, $this->fields, $this->searchfield);
                     echo $this->formLabel()->openTag($searchFieldElement);
                     echo $this->translate($searchFieldElement->getLabel(), __NAMESPACE__);
                     echo '&nbsp;<a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>';
-                    echo $this->formSelect($searchFieldElement);
                     echo $this->formLabel()->closeTag();
                 ?>
+            </td>
+            <td>
+                <?php echo $this->formSelect($searchFieldElement); ?>
 
                 <div id="modalFields" class="reveal-modal" data-reveal>
                     <h5><?php echo $this->translate('Fields', __NAMESPACE__); ?></h5>
@@ -60,18 +78,25 @@
             </td>
         </tr>
 
-        <tr class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
+        <tr class="<?php if (!$this->searchtype) { echo 'invisible'; } ?>">
+            <?php 
+                $searchTermElement = $form->get('searchterm');
+                $searchTermElement->setValue($this->searchterm);
+            ?>
             <td class="large-12 columns">
                 <?php 
-                    $searchTermElement = $form->get('searchterm');
-                    $searchTermElement->setValue($this->searchterm);
-                    echo $this->formRow($searchTermElement);
+                    echo $this->formLabel()->openTag($searchTermElement);
+                    echo $searchTermElement->getLabel(); 
+                    echo $this->formLabel()->closeTag();
                 ?>
+            </td>
+            <td>
+                <?php echo $this->formInput($searchTermElement); ?>
             </td>
         </tr>
 
-        <tr class="row<?php if (!$this->searchtype) { echo ' invisible'; } ?>">
-            <td class="large-12 columns">
+        <tr class="<?php if (!$this->searchtype) { echo 'invisible'; } ?>">
+            <td colspan="2">
                 <?php echo $this->formButton()->render($form->get('submit'), $this->translate('Start search', __NAMESPACE__)); ?>
             </td>
         </tr>
