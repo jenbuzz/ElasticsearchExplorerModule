@@ -7,7 +7,11 @@
         <tbody>
         <?php foreach ($this->plugins AS $plugin): ?>
             <tr>
-                <td><a href="http://<?php echo $this->hosts . $plugin['url']; ?>" target="_blank"><strong><?php echo $plugin['name']; ?></strong></a></td>
+                <td>
+                    <a href="http://<?php echo $this->hosts . $plugin['url']; ?>" target="_blank">
+                        <strong><?php echo $plugin['name']; ?></strong>
+                    </a>
+                </td>
                 <td><?php echo $plugin['description']; ?></td>
             </tr>
         <?php endforeach; ?>
